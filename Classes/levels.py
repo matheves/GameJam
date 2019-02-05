@@ -142,7 +142,10 @@ class Level_0(Level):
                   ]
 
         for platform in level:
-            block = Classes.platforms.Platform(platform[0])
+            if platform[0] == Classes.platforms.SPRING:
+                block = Classes.platforms.Spring(platform[0])
+            else :
+                block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
             block.rect.y = platform[2]
             block.player = self.player
