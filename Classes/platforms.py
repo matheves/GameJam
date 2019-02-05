@@ -8,6 +8,8 @@ GRASS_RIGHT           = (576, 576, 70, 70)
 STONE_PLATFORM_LEFT   = (432, 720, 70, 40)
 STONE_PLATFORM_MIDDLE = (648, 648, 70, 40)
 STONE_PLATFORM_RIGHT  = (792, 648, 70, 40)
+SPIKE                 = (720, 360, 70, 70)
+MINE                  = (432, 127, 70, 15)
 
 class Platform(pygame.sprite.Sprite):
     # Platform to jump
