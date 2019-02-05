@@ -22,7 +22,7 @@ class Level():
 
     def draw(self, screen):
         # Draw the background
-        screen.fill(constants.BLACK)
+        screen.fill(constants.RED)
         screen.blit(self.background,(self.world_shift // 3,0))
 
         # Draw sprite list
@@ -62,7 +62,7 @@ class Level_0(Level):
                   [Classes.platforms.GRASS_MIDDLE, 700, 650],
                   [Classes.platforms.GRASS_MIDDLE, 770, 650],
                   [Classes.platforms.GRASS_MIDDLE, 840, 650],
-                  [Classes.platforms.SPIKE, 840, 580],
+                  [Classes.platforms.SPIKE_UP, 840, 580],
                   [Classes.platforms.GRASS_MIDDLE, 910, 650],
                   [Classes.platforms.GRASS_MIDDLE, 980, 650],
                   [Classes.platforms.GRASS_MIDDLE, 1050, 650],
@@ -70,6 +70,7 @@ class Level_0(Level):
                   [Classes.platforms.GRASS_MIDDLE, 1190, 650],
                   [Classes.platforms.GRASS_MIDDLE, 1260, 650],
                   [Classes.platforms.GRASS_MIDDLE, 1330, 650],
+                  [Classes.platforms.SPRING, 1330, 620],
                   [Classes.platforms.GRASS_MIDDLE, 1400, 650],
                   [Classes.platforms.GRASS_MIDDLE, 1470, 650],
                   [Classes.platforms.GRASS_MIDDLE, 1540, 650],
