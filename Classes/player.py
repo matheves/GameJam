@@ -29,35 +29,35 @@ class Player(pygame.sprite.Sprite):
         sprite_sheet = SpriteSheet("Images\\astronaut_move.png")
 
         #Load all right faces into a list
-        image = sprite_sheet.get_image(0, 64, 32, 32)
+        image = sprite_sheet.get_image(0, 128, 64, 64)
         self.walking_frames_r.append(image)
-        image = sprite_sheet.get_image(32, 64, 32, 32)
+        image = sprite_sheet.get_image(64, 128, 64, 64)
         self.walking_frames_r.append(image)
-        image = sprite_sheet.get_image(64, 64, 32, 32)
+        image = sprite_sheet.get_image(128, 128, 64, 64)
         self.walking_frames_r.append(image)
 
         #Load all left faces into a list
-        image = sprite_sheet.get_image(0, 32, 32, 32)
+        image = sprite_sheet.get_image(0, 64, 64, 64)
         self.walking_frames_l.append(image)
-        image = sprite_sheet.get_image(32, 32, 32, 32)
+        image = sprite_sheet.get_image(64, 64, 64, 64)
         self.walking_frames_l.append(image)
-        image = sprite_sheet.get_image(64, 32, 32, 32)
+        image = sprite_sheet.get_image(128, 64, 64, 64)
         self.walking_frames_l.append(image)
 
         #load all front fasces into list
-        image = sprite_sheet.get_image(0, 0, 32, 32)
+        image = sprite_sheet.get_image(0, 0, 64, 64)
         self.walking_frames_u.append(image)
-        image = sprite_sheet.get_image(32, 0, 32, 32)
+        image = sprite_sheet.get_image(64, 0, 64, 64)
         self.walking_frames_u.append(image)
-        image = sprite_sheet.get_image(64, 0, 32, 32)
+        image = sprite_sheet.get_image(128, 0, 64, 64)
         self.walking_frames_u.append(image)
 
         #load all back faces into list
-        image = sprite_sheet.get_image(0, 96, 32, 32)
+        image = sprite_sheet.get_image(0, 192, 64, 64)
         self.walking_frames_d.append(image)
-        image = sprite_sheet.get_image(32, 96, 32, 32)
+        image = sprite_sheet.get_image(64, 192, 64, 64)
         self.walking_frames_d.append(image)
-        image = sprite_sheet.get_image(64, 96, 32, 32)
+        image = sprite_sheet.get_image(64, 192, 64, 64)
         self.walking_frames_d.append(image)
 
         self.image = self.walking_frames_r[0]
