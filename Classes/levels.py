@@ -37,7 +37,7 @@ class Level_0(Level):
     # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
-        self.background = pygame.image.load("background_00.png").convert()
+        self.background = pygame.image.load("../Images/background_00.png").convert()
         self.level_limit = -2500
 
         level = [ [platforms.STONE_PLATFORM_MIDDLE, 50, 620],
