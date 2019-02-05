@@ -9,8 +9,15 @@ STONE_PLATFORM_LEFT   = (432, 720, 70, 40)
 STONE_PLATFORM_MIDDLE = (648, 648, 70, 40)
 STONE_PLATFORM_RIGHT  = (792, 648, 70, 40)
 SPIKE_UP              = (720, 360, 70, 70)
+SPIKE_DOWN            = (720, 288, 70, 70)
+SPIKE_RIGHT           = (720, 144, 70, 70)
+SPIKE_LEFT            = (720, 216, 70, 70)
 MINE                  = (432, 127, 70, 15)
-SPRING                = (940, 340, 70, 40)
+SPRING                = (967, 347, 19, 27)
+PORTAL_Y_DOWN         = (648, 432, 70, 70)
+PORTAL_Y_UP           = (648, 360, 70, 70)
+PORTAL_B_DOWN         = (648, 288, 70, 70)
+PORTAL_B_UP           = (648, 144, 70, 70)
 
 class Platform(pygame.sprite.Sprite):
     # Platform to jump
