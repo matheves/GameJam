@@ -5,6 +5,11 @@ Constants
 SCREEN_WIDTH  = 1024
 SCREEN_HEIGHT = 768
 
+#Sprites
+nb_side_sprite = 32
+nb_height_sprite = 24
+size_side_sprite = 32
+
 # Colors
 BLACK    = (   0,   0,   0)
 WHITE    = ( 255, 255, 255)
