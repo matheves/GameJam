@@ -2,7 +2,7 @@ import pygame
 import Classes.platforms
 import constants
 
-class Player(pygame.sprite.Sprite()):
+class Player(pygame.sprite.Sprite):
     """ATTRIBUTES"""
 
     change_x = 0
@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite()):
     """CONSTRUCTOR"""
 
     def __init__(self):
-        pygame.sprite.Sprite.__init__(sehlf)
+        pygame.sprite.Sprite.__init__(self)
 
         sprite_sheet = SpriteSheet("..\Images\\astronaut_move.png")
 
