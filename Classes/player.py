@@ -1,5 +1,5 @@
 import pygame
-import platforms
+import Classes.platforms
 import constants
 
 class Player(pygame.sprite.Sprite()):
@@ -24,7 +24,7 @@ class Player(pygame.sprite.Sprite()):
     def __init__(self):
         pygame.sprite.Sprite.__init__(sehlf)
 
-        sprite_sheet = SpriteSheet("..\Ressources\\astronaut_move.png")
+        sprite_sheet = SpriteSheet("..\Images\\astronaut_move.png")
 
         #Load all right faces into a list
         image = sprite_sheet.get_image(0, 64, 32, 32)
@@ -37,7 +37,7 @@ class Player(pygame.sprite.Sprite()):
         #Load all left faces into a list
         image = sprite_sheet.get_image(0, 32, 32, 32)
         self.walking_frames_l.append(image)
-        image = sprite_sheet.get_image(32), 32, 32, 32)
+        image = sprite_sheet.get_image(32, 32, 32, 32)
         self.walking_frames_l.append(image)
         image = sprite_sheet.get_image(64, 32, 32, 32)
         self.walking_frames_l.append(image)

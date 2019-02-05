@@ -1,6 +1,8 @@
 import pygame
+
 import constants
-import platforms
+
+import Classes.platforms
 
 class Level():
     # Initialization

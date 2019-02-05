@@ -1,5 +1,5 @@
 import pygame
-from spritesheet_functions import SpriteSheet
+from Classes.spritesheet_functions import SpriteSheet
 
 #   Name of file = (X,Y,WIDTH,HEIGHT)
 GRASS_LEFT            = (576, 720, 70, 70)
