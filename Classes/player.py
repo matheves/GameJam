@@ -61,7 +61,7 @@ class Player(pygame.sprite.Sprite):
 
         self.image = self.walking_frames_r[0]
 
-        self.image = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
     def update(self):
         """Move the player"""
@@ -73,14 +73,14 @@ class Player(pygame.sprite.Sprite):
         self.rect.x += self.change_x
         pos = self.rect.x + self.level.world_shift
         if self.direction == "R":
-            frame = (pos // 30) % len(self.walking_frames_r[frame])
-            self.image = self.walking_frame_r[frame]
+            frame = (pos // 30) % len(self.walking_frames_r)
+            self.image = self.walking_frames_r[frame]
         else:
             frame = (pos // 30) % len(self.walking_frames_l)
             self.image = self.walking_frames_l[frame]
 
         #Collision management
-        block_hit_list = pygame.sprite.spritecollide(self, self.level.plateform_list, False)
+        block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         for block in block_hit_list:
             #Reset position of top/bottom
             if self.change_y > 0:
@@ -107,19 +107,19 @@ class Player(pygame.sprite.Sprite):
             self.change_y = 0
             self.rect.y = constants.SCREEN_HEIGHT - self.rect.height
 
-    def jump():
+    def jump(self):
         """ Called when user jump """
         # move down a bit and see if there is a platform below us.
         # Move down 2 pixels because it doesn't work well if we only move down 1
         # when working with a platform moving down.
 
         self.rect.y += 2
-        plateform_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+        platform_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         self.rect.y -= 2
 
-        #if it is okay go jump
-        if len(plateform_hit_list) > 0 or self.rect.bottom >= constants.SCREEN_HEIGHT:
-             self.change_y = -10
+        # If it is ok to jump, set our speed upwards
+        if len(platform_hit_list) > 0 or self.rect.bottom >= constants.SCREEN_HEIGHT:
+            self.change_y = -10
 
     #Player Movement
     def go_left(self):

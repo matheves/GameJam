@@ -54,28 +54,28 @@ def main():
                 if event.key == pygame.K_RIGHT and player.change_x > 0:
                     player.stop()
 
-            # Update the player.
-            active_sprite_list.update()
+        # Update the player.
+        active_sprite_list.update()
 
-            # Update items in the level
-            current_level.update()
+        # Update items in the level
+        current_level.update()
 
-            # If the player gets near the right side, shift the world left (-x)
-            if player.rect.x >= 500:
-                diff = player.rect.x - 500
-                player.rect.x = 500
-                current_level.shift_world(-diff)
+        # If the player gets near the right side, shift the world left (-x)
+        if player.rect.x >= 500:
+            diff = player.rect.x - 500
+            player.rect.x = 500
+            current_level.shift_world(-diff)
 
-            # If the player gets near the left side, shift the world right (+x)
-            if player.rect.x <= 120:
-                diff = 120 - player.rect.x
-                player.rect.x = 120
-                current_level.shift_world(diff)
+        # If the player gets near the left side, shift the world right (+x)
+        if player.rect.x <= 120:
+            diff = 120 - player.rect.x
+            player.rect.x = 120
+            current_level.shift_world(diff)
 
-            current_level.draw(screen)
-            active_sprite_list.draw(screen)
-            clock.tick(60)
-            pygame.display.flip()
+        current_level.draw(screen)
+        active_sprite_list.draw(screen)
+        clock.tick(60)
+        pygame.display.flip()
     pygame.quit()
 
 if __name__ == "__main__":
