@@ -1,5 +1,6 @@
 import pygame
 import Classes.platforms
+from Classes.spritesheet_functions import SpriteSheet
 import constants
 
 class Player(pygame.sprite.Sprite):

@@ -1,4 +1,3 @@
-import os, sys
 import pygame
 import Classes.levels
 import Classes.constants
