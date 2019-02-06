@@ -39,74 +39,111 @@ def main():
     #level_list.append(Classes.levels.Level_5(player))
     #level_list.append(Classes.levels.Level_6(player))
 
-    #Set the current level
-    current_level = selectRandomLevel(player)
-
-    active_sprite_list = pygame.sprite.Group()
-    generateLevel(player, current_level)
-    active_sprite_list.add(player)
-#test
     done = False
 
     clock = pygame.time.Clock()
 
     #Game Loop
     while not done:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT: # If user clicked close
-                done = True # Flag that we are done so we exit this loop
 
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    player.go_left()
-                if event.key == pygame.K_RIGHT:
-                    player.go_right()
-                if event.key == pygame.K_UP:
-                    player.jump()
+        accueil = pygame.image.load("Images/accueil.jpg").convert()
+        screen.blit(accueil, (0,0))
 
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT and player.change_x < 0:
-                    player.stop()
-                if event.key == pygame.K_RIGHT and player.change_x > 0:
-                    player.stop()
-
-            if event.type == Classes.constants.SPRING:
-                player.springJump()
-
-            if event.type == Classes.constants.ANTIGRAVITY:
-                player.changeGravity()
-
-            if event.type == Classes.constants.DEATH:
-                current_level = selectRandomLevel(player)
-                player.pos = Classes.constants.levelStart_x
-                generateLevel(player, current_level)
-
-            if event.type == Classes.constants.BOOST:
-                player.go_boost()
-
-
-        # Update the player.
-        active_sprite_list.update()
-
-        # Update items in the level
-        current_level.update()
-
-        # If the player gets near the right side, shift the world left (-x)
-        if player.rect.x >= 500:
-            diff = player.rect.x - 500
-            player.rect.x = 500
-            current_level.shift_world(-diff)
-
-        # If the player gets near the left side, shift the world right (+x)
-        if player.rect.x <= 120:
-            diff = 120 - player.rect.x
-            player.rect.x = 120
-            current_level.shift_world(diff)
-
-        current_level.draw(screen)
-        active_sprite_list.draw(screen)
-        clock.tick(60)
         pygame.display.flip()
+
+        continuer_accueil = 1
+        continuer_jeu = 1
+
+        while continuer_accueil:
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    continuer_accueil = 0
+                    continuer_jeu = 0
+                    choix = 0
+
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_F1:
+                        continuer_accueil = 0
+                        choix = "tuto"
+
+                    elif event.key == pygame.K_F2:
+                        continuer_accueil = 0
+                        choix = "ramdom"
+
+        if choix != 0:
+            if choix == "tuto":
+                current_level = Classes.levels.Level_0(player)
+                active_sprite_list = pygame.sprite.Group()
+                generateLevel(player, current_level)
+                active_sprite_list.add(player)
+
+            elif choix == 'ramdom':
+                current_level = selectRandomLevel(player)
+                active_sprite_list = pygame.sprite.Group()
+                generateLevel(player, current_level)
+                active_sprite_list.add(player)
+
+        while continuer_jeu:
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT: # If user clicked close
+                    done = True # Flag that we are done so we exit this loop
+                    continuer_jeu = 0
+
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                       continuer_jeu = 0
+                    elif event.key == pygame.K_LEFT:
+                        player.go_left()
+                    elif event.key == pygame.K_RIGHT:
+                        player.go_right()
+                    elif event.key == pygame.K_UP:
+                        player.jump()
+
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT and player.change_x < 0:
+                        player.stop()
+                    if event.key == pygame.K_RIGHT and player.change_x > 0:
+                        player.stop()
+
+                if event.type == Classes.constants.SPRING:
+                    player.springJump()
+
+                if event.type == Classes.constants.ANTIGRAVITY:
+                    player.changeGravity()
+
+                if event.type == Classes.constants.DEATH:
+                    current_level = selectRandomLevel(player)
+                    player.pos = Classes.constants.levelStart_x
+                    generateLevel(player, current_level)
+
+                if event.type == Classes.constants.BOOST:
+                    player.go_boost()
+
+
+            # Update the player.
+            active_sprite_list.update()
+
+            # Update items in the level
+            current_level.update()
+
+            # If the player gets near the right side, shift the world left (-x)
+            if player.rect.x >= 500:
+                diff = player.rect.x - 500
+                player.rect.x = 500
+                current_level.shift_world(-diff)
+
+            # If the player gets near the left side, shift the world right (+x)
+            if player.rect.x <= 120:
+                diff = 120 - player.rect.x
+                player.rect.x = 120
+                current_level.shift_world(diff)
+
+            current_level.draw(screen)
+            active_sprite_list.draw(screen)
+            clock.tick(60)
+            pygame.display.flip()
     pygame.quit()
 
 if __name__ == "__main__":

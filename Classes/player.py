@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
 
-        sprite_sheet = SpriteSheet("Images\\astronaut_move.png")
+        sprite_sheet = SpriteSheet("Images/astronaut_move.png")
 
         #Load all right faces into a list with gravity
         image = sprite_sheet.get_image(0, 128, 64, 64)
