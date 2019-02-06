@@ -44,9 +44,13 @@ def main():
     done = False
 
     clock = pygame.time.Clock()
+    pygame.time.set_timer(pygame.USEREVENT, 1000)
+    font = pygame.font.SysFont('Consolas', 60)
 
     #Game Loop
     while not done:
+
+        counter, text = 180, '180'.rjust(3)
 
         accueil = pygame.image.load("Images/accueil.jpg").convert()
         screen.blit(accueil, (0,0))
@@ -59,10 +63,11 @@ def main():
         while continuer_accueil:
 
             for event in pygame.event.get():
+
                 if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     continuer_accueil = 0
                     continuer_jeu = 0
-                    done = true
+                    done = True
                     choix = 0
 
                 elif event.type == pygame.KEYDOWN:
@@ -89,8 +94,17 @@ def main():
 
         while continuer_jeu:
 
+
             for event in pygame.event.get():
-                if event.type == pygame.QUIT: # If user clicked close
+
+                if event.type == pygame.USEREVENT:
+                    counter -= 1
+                    text = str(counter).rjust(3) if counter > 0 else 'boom!'
+                    if counter <= 0:
+                        continuer_jeu = 0
+                        choix = 0
+
+                elif event.type == pygame.QUIT: # If user clicked close
                     done = True # Flag that we are done so we exit this loop
                     continuer_jeu = 0
 
@@ -146,6 +160,9 @@ def main():
             current_level.draw(screen)
             active_sprite_list.draw(screen)
             clock.tick(60)
+
+            screen.blit(font.render(text, True, (255, 45, 0)), (32, 48))
+
             pygame.display.flip()
     pygame.quit()
 
