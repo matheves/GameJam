@@ -45,29 +45,24 @@ class Level_0(Level):
         level = [ [Classes.platforms.WALL, 50, 450],
                   [Classes.platforms.MINE, 560, 638],
                   [Classes.platforms.SPIKE_UP, 840, 580],
-                  [Classes.platforms.SPIKE_DOWN, 840, 440],
-                  [Classes.platforms.SPIKE_RIGHT, 1050, 580],
-                  [Classes.platforms.GRASS_MIDDLE, 1120, 650],
-                  [Classes.platforms.GRASS_MIDDLE, 1190, 650],
-                  [Classes.platforms.SPIKE_LEFT, 1190, 580],
+                  [Classes.platforms.SPIKE_DOWN, 840, 300],
                   [Classes.platforms.SPRING, 1353, 625],
                   [Classes.platforms.BOOST, 1500, 580],
-                  [Classes.platforms.PORTAL_Y_DOWN, 1680, 580],
-                  [Classes.platforms.PORTAL_Y_UP, 1680, 540],
                   [Classes.platforms.WALL, 1840, 450],
                   [Classes.platforms.FLOOR28, 0, 650],
+                  [Classes.platforms.PORTAL_Y, 1680, 650],
+                  [Classes.platforms.FINISH, 260, 650],
 
                   [Classes.platforms.WALL, 50, 118],
-                  [Classes.platforms.PORTAL_B_DOWN, 140, 118],
-                  [Classes.platforms.PORTAL_B_UP, 140, 187],
                   [Classes.platforms.WALL, 1840, 118],
                   [Classes.platforms.SKY28, 0, 48],
+                  [Classes.platforms.PORTAL_B, 140, 48],
                   ]
 
         for platform in level:
             if platform[0] == Classes.platforms.SPRING:
                 block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y_DOWN or platform[0] == Classes.platforms.PORTAL_Y_UP or platform[0] == Classes.platforms.PORTAL_B_DOWN or platform[0] == Classes.platforms.PORTAL_B_UP:
+            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
