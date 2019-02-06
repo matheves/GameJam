@@ -85,7 +85,8 @@ def main():
 
             elif choix == 'ramdom':
                 list_no = []
-                for i in range(1, Classes.constants.nbLevel):
+                for i in range(1, Classes.constants.nbLevel+1):
+                    print(i)
                     list_no.append(i)
                 noLevel = createRandomNum(list_no)
                 current_level = selectRandomLevel(player, list_no, noLevel)
