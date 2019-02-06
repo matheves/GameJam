@@ -142,7 +142,7 @@ class Player(pygame.sprite.Sprite):
                 pygame.time.set_timer(Classes.constants.BOOST, 20)
                 self.boost_x = self.distance + 280
             if type(block) == Finish:
-                finishEvent = pygame.event.Event(Classes.Constants.FINISH)
+                finishEvent = pygame.event.Event(Classes.constants.FINISH)
                 pygame.event.post(finishEvent)
 
 

@@ -6,10 +6,12 @@ import random
 from time import time
 
 
-def selectRandomLevel(player):
+def createRandomNum(list_no):
+    return list_no[random.randrange(0, len(list_no), 1)]
+
+def selectRandomLevel(player, list_no, noLevel):
     level_list = []
-    k = random.randint(0, Classes.constants.nbLevel-1)
-    level = "level_list.append(Classes.levels.Level_" + str(k) + "(player))"
+    level = "level_list.append(Classes.levels.Level_" + str(noLevel) + "(player))"
     exec(level)
     return level_list[0]
 
@@ -82,7 +84,11 @@ def main():
                 active_sprite_list.add(player)
 
             elif choix == 'ramdom':
-                current_level = selectRandomLevel(player)
+                list_no = []
+                for i in range(0, Classes.constants.nbLevel-1):
+                    list_no.append(i)
+                noLevel = createRandomNum(list_no)
+                current_level = selectRandomLevel(player, list_no, noLevel)
                 active_sprite_list = pygame.sprite.Group()
                 generateLevel(player, current_level)
                 active_sprite_list.add(player)
@@ -117,12 +123,20 @@ def main():
                     player.changeGravity()
 
                 if event.type == Classes.constants.DEATH:
-                    current_level = selectRandomLevel(player)
+                    noLevel = createRandomNum(list_no)
+                    current_level = selectRandomLevel(player, list_no, noLevel)
                     player.pos = Classes.constants.levelStart_x
                     generateLevel(player, current_level)
 
                 if event.type == Classes.constants.BOOST:
                     player.go_boost()
+
+                if event.type == Classes.constants.FINISH:
+                    list_no.remove(noLevel)
+                    noLevel = createRandomNum(list_no)
+                    current_level = selectRandomLevel(player, list_no, noLevel)
+                    player.pos = Classes.constants.levelStart_x
+                    generateLevel(player, current_level)
 
 
             # Update the player.
