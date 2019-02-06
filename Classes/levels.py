@@ -66,21 +66,33 @@ class Level_0(Level):
         self.background = pygame.image.load("Images/background_00.png").convert()
         self.level_limit = -2500
 
-        level = [ [Classes.platforms.WALL, 50, 450],
+        level = [ #sol
+                  [Classes.platforms.FLOOR7, 0, 650],
+                  [Classes.platforms.FLOOR7, 476, 650],
+                  [Classes.platforms.FLOOR7, 952, 650],
+                  [Classes.platforms.FLOOR7, 1428, 650],
+                  #toit
+                  [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 952, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
+
                   [Classes.platforms.MINE, 560, 638],
                   [Classes.platforms.SPIKE_UP, 840, 580],
                   [Classes.platforms.SPIKE_DOWN, 840, 260],
-                  [Classes.platforms.SPRING, 1209, 625],
-                  [Classes.platforms.WALL, 1840, 450],
-                  [Classes.platforms.FLOOR28, 0, 650],
+                  [Classes.platforms.PORTAL_B, 125, 48],
                   [Classes.platforms.PORTAL_Y, 1680, 650],
+                  [Classes.platforms.SPRING, 1209, 625],
                   [Classes.platforms.BOOST, 1430, 650],
                   [Classes.platforms.FINISH, 260, 650],
-
-                  [Classes.platforms.WALL, 50, 118],
-                  [Classes.platforms.WALL, 1840, 118],
-                  [Classes.platforms.SKY28, 0, 48],
-                  [Classes.platforms.PORTAL_B, 125, 48],
+                  [Classes.platforms.WALL, 55, 118],
+                  [Classes.platforms.WALL, 55, 260],
+                  [Classes.platforms.WALL, 55, 368],
+                  [Classes.platforms.WALL, 55, 510],
+                  [Classes.platforms.WALL, 1835, 118],
+                  [Classes.platforms.WALL, 1835, 260],
+                  [Classes.platforms.WALL, 1835, 368],
+                  [Classes.platforms.WALL, 1835, 510],
                   ]
 
         self.checkBlock(level)
