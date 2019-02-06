@@ -3,6 +3,8 @@ import Classes.levels
 import Classes.constants
 from Classes.player import Player
 import random
+from time import time
+
 
 def selectRandomLevel(player):
     level_list = []
@@ -60,6 +62,7 @@ def main():
                 if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     continuer_accueil = 0
                     continuer_jeu = 0
+                    done = true
                     choix = 0
 
                 elif event.type == pygame.KEYDOWN:
