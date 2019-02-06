@@ -66,6 +66,8 @@ class Level_0(Level):
         for platform in level:
             if platform[0] == Classes.platforms.SPRING:
                 block = Classes.platforms.Spring(platform[0])
+            elif platform[0] == Classes.platforms.PORTAL_Y_DOWN or platform[0] == Classes.platforms.PORTAL_Y_UP or platform[0] == Classes.platforms.PORTAL_B_DOWN or platform[0] == Classes.platforms.PORTAL_B_UP:
+                block = Classes.platforms.GravityPortal(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]

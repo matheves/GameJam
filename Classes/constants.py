@@ -18,3 +18,6 @@ GREEN    = (   0, 255,   0)
 # Events
 
 SPRING = pygame.USEREVENT + 1
+PIKE = pygame.USEREVENT + 2
+ANTIGRAVITY = pygame.USEREVENT + 3
+ENDLEVEL = pygame.USEREVENT + 4

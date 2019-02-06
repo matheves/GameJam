@@ -36,3 +36,6 @@ class Platform(pygame.sprite.Sprite):
 
 class Spring(Platform):
     pass
+
+class GravityPortal(Platform):
+    pass

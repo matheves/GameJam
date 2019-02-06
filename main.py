@@ -55,7 +55,11 @@ def main():
                     player.stop()
 
             if event.type == Classes.constants.SPRING:
-                player.jump()
+                player.springJump()
+
+            if event.type == Classes.constants.ANTIGRAVITY:
+                player.changeGravity()
+
 
         # Update the player.
         active_sprite_list.update()
