@@ -135,15 +135,20 @@ class Player(pygame.sprite.Sprite):
             if type(block) == Pike or type(block) == Mine:
                 self.change_x = 0
                 self.change_y = 0
+                self.boost_x = self.distance - 1
                 self.gravity = True
                 deathEvent = pygame.event.Event(Classes.constants.DEATH)
                 pygame.event.post(deathEvent)
+
             if type(block) == Boost:
                 pygame.time.set_timer(Classes.constants.BOOST, 20)
                 self.boost_x = self.distance + 280
+
             if type(block) == Finish:
+                self.boost_x = self.distance - 1
                 finishEvent = pygame.event.Event(Classes.constants.FINISH)
                 pygame.event.post(finishEvent)
+
 
 
 
