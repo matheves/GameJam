@@ -7,7 +7,7 @@ from time import time
 
 
 def createRandomNum(list_no):
-    return list_no[random.randrange(0, len(list_no), 1)]
+    return list_no[random.randrange(1, len(list_no), 1)]
 
 def selectRandomLevel(player, list_no, noLevel):
     level_list = []
@@ -85,7 +85,7 @@ def main():
 
             elif choix == 'ramdom':
                 list_no = []
-                for i in range(0, Classes.constants.nbLevel-1):
+                for i in range(1, Classes.constants.nbLevel):
                     list_no.append(i)
                 noLevel = createRandomNum(list_no)
                 current_level = selectRandomLevel(player, list_no, noLevel)
