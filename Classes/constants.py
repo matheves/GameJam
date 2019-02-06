@@ -3,6 +3,7 @@ Constants
 """
 
 import pygame
+import Classes.platforms
 
 # Screen dimensions
 SCREEN_WIDTH  = 1024
@@ -15,9 +16,27 @@ BLUE     = (   0,   0, 255)
 RED      = ( 255,   0,   0)
 GREEN    = (   0, 255,   0)
 
+#sprite size
+
+playerHeight = 64
+playerWidth = 64
+
+#Player Cordinate at level start
+
+levelStart_x = 340
+levelStart_y = SCREEN_HEIGHT - playerHeight - 118
+
+#level
+
+bottomBorder = 704
+topBorder = 118
+nbLevel = 7
+
 # Events
 
 SPRING = pygame.USEREVENT + 1
-PIKE = pygame.USEREVENT + 2
+DEATH = pygame.USEREVENT + 2
 ANTIGRAVITY = pygame.USEREVENT + 3
 ENDLEVEL = pygame.USEREVENT + 4
+
+#Level

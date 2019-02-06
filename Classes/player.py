@@ -127,6 +127,13 @@ class Player(pygame.sprite.Sprite):
                 gravityEvent = pygame.event.Event(Classes.constants.ANTIGRAVITY)
                 pygame.event.post(gravityEvent)
 
+            if type(block) == Pike or self.rect.y < Classes.constants.topBorder or self.rect.y > Classes.constants.bottomBorder:
+                self.change_x = 0
+                self.change_y = 0
+                deathEvent = pygame.event.Event(Classes.constants.DEATH)
+                pygame.event.post(deathEvent)
+
+
             # Stop our vertical movement
             self.change_y = 0
 
@@ -195,13 +202,6 @@ class Player(pygame.sprite.Sprite):
     def stop(self):
         """ Called when the users don't move """
         self.change_x = 0
-
-    def respawn(self, levelStart_x, levelStart_y):
-        self.change_y = 0
-        self.change_x = 0
-
-        self.rect.x = levelStart_x
-        self.rect.y = levelStart_y
 
     def springJump(self):
         if self.gravity == True:

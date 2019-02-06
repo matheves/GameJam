@@ -36,3 +36,6 @@ class Spring(Platform):
 
 class GravityPortal(Platform):
     pass
+
+class Pike(Platform):
+    pass

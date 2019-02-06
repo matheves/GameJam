@@ -2,6 +2,16 @@ import pygame
 import Classes.levels
 import Classes.constants
 from Classes.player import Player
+import random
+
+def selectRandomLevel(level_list):
+    k = random.randint(0, Classes.constants.nbLevel-1)
+    return level_list[k]
+
+def generateLevel(player, level):
+    player.rect.x = Classes.constants.levelStart_x
+    player.rect.y = Classes.constants.levelStart_y
+    level.reset()
 
 def main():
     pygame.init()
@@ -10,24 +20,26 @@ def main():
     size = [Classes.constants.SCREEN_WIDTH, Classes.constants.SCREEN_HEIGHT]
     screen = pygame.display.set_mode(size)
 
-    pygame.display.set_caption("Paspal OP")
+    pygame.display.set_caption("Galactik Hold Up")
 
     #init player
     player = Player()
 
     #create levels
     level_list = []
+    level_list.append(Classes.levels.Level_0(player))
+    level_list.append(Classes.levels.Level_1(player))
+    level_list.append(Classes.levels.Level_2(player))
+    level_list.append(Classes.levels.Level_3(player))
+    level_list.append(Classes.levels.Level_4(player))
+    level_list.append(Classes.levels.Level_5(player))
     level_list.append(Classes.levels.Level_6(player))
 
     #Set the current level
-    current_level_no = 0
-    current_level = level_list[current_level_no]
+    current_level = selectRandomLevel(level_list)
 
     active_sprite_list = pygame.sprite.Group()
-    player.level = current_level
-
-    player.rect.x = 340
-    player.rect.y = Classes.constants.SCREEN_HEIGHT - player.rect.height - 118
+    generateLevel(player, current_level)
     active_sprite_list.add(player)
 #test
     done = False
@@ -60,6 +72,10 @@ def main():
             if event.type == Classes.constants.ANTIGRAVITY:
                 player.changeGravity()
 
+            if event.type == Classes.constants.DEATH:
+                current_level = selectRandomLevel(level_list)
+                perso.pos = Classes.constants.levelStart_x
+                generateLevel(player, current_level)
 
         # Update the player.
         active_sprite_list.update()

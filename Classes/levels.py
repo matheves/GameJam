@@ -34,6 +34,9 @@ class Level():
         # Sprite movement
         for platform in self.platform_list:
             platform.rect.x += shift_x
+
+    def reset(self):
+        self.world_shift = 0
 #test
 class Level_0(Level):
     # Tutorial's creation
@@ -64,6 +67,8 @@ class Level_0(Level):
                 block = Classes.platforms.Spring(platform[0])
             elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
@@ -106,6 +111,8 @@ class Level_1(Level):
                 block = Classes.platforms.Spring(platform[0])
             elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
@@ -146,6 +153,8 @@ class Level_2(Level):
                 block = Classes.platforms.Spring(platform[0])
             elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
@@ -190,6 +199,8 @@ class Level_3(Level):
                 block = Classes.platforms.Spring(platform[0])
             elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
@@ -239,6 +250,8 @@ class Level_4(Level):
                 block = Classes.platforms.Spring(platform[0])
             elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
@@ -280,6 +293,8 @@ class Level_5(Level):
                 block = Classes.platforms.Spring(platform[0])
             elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
@@ -321,6 +336,8 @@ class Level_6(Level):
                 block = Classes.platforms.Spring(platform[0])
             elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
                 block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
             block.rect.x = platform[1]
