@@ -39,3 +39,12 @@ class GravityPortal(Platform):
 
 class Pike(Platform):
     pass
+
+class Boost(Platform):
+    pass
+
+class Mine(Platform):
+    pass
+
+class Finish(Platform):
+    pass

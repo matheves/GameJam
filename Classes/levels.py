@@ -37,6 +37,27 @@ class Level():
 
     def reset(self,player):
         pygame.display.flip()
+
+    def checkBlock(self, level):
+        for platform in level:
+            if platform[0] == Classes.platforms.SPRING:
+                block = Classes.platforms.Spring(platform[0])
+            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
+                block = Classes.platforms.GravityPortal(platform[0])
+            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
+                block = Classes.platforms.Pike(platform[0])
+            elif platform[0] == Classes.platforms.BOOST:
+                block = Classes.platforms.Boost(platform[0])
+            elif platform[0] == Classes.platforms.MINE:
+                block = Classes.platforms.Mine(platform[0])
+            elif platform[0] == Classes.platforms.FINISH:
+                block = Classes.platforms.Finish(platform[0])
+            else :
+                block = Classes.platforms.Platform(platform[0])
+            block.rect.x = platform[1]
+            block.rect.y = platform[2]
+            block.player = self.player
+            self.platform_list.add(block)
 #test
 class Level_0(Level):
     # Tutorial's creation
@@ -62,19 +83,7 @@ class Level_0(Level):
                   [Classes.platforms.PORTAL_B, 125, 48],
                   ]
 
-        for platform in level:
-            if platform[0] == Classes.platforms.SPRING:
-                block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
-                block = Classes.platforms.GravityPortal(platform[0])
-            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
-                block = Classes.platforms.Pike(platform[0])
-            else :
-                block = Classes.platforms.Platform(platform[0])
-            block.rect.x = platform[1]
-            block.rect.y = platform[2]
-            block.player = self.player
-            self.platform_list.add(block)
+        self.checkBlock(level)
 
 class Level_1(Level):
     # Tutorial's creation
@@ -106,19 +115,7 @@ class Level_1(Level):
                   [Classes.platforms.FINISH, 1900, 650],
                   ]
 
-        for platform in level:
-            if platform[0] == Classes.platforms.SPRING:
-                block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
-                block = Classes.platforms.GravityPortal(platform[0])
-            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
-                block = Classes.platforms.Pike(platform[0])
-            else :
-                block = Classes.platforms.Platform(platform[0])
-            block.rect.x = platform[1]
-            block.rect.y = platform[2]
-            block.player = self.player
-            self.platform_list.add(block)
+        self.checkBlock(level)
 
 class Level_2(Level):
     # Tutorial's creation
@@ -148,19 +145,7 @@ class Level_2(Level):
                   [Classes.platforms.SKY28, 0, 48],
                   ]
 
-        for platform in level:
-            if platform[0] == Classes.platforms.SPRING:
-                block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
-                block = Classes.platforms.GravityPortal(platform[0])
-            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
-                block = Classes.platforms.Pike(platform[0])
-            else :
-                block = Classes.platforms.Platform(platform[0])
-            block.rect.x = platform[1]
-            block.rect.y = platform[2]
-            block.player = self.player
-            self.platform_list.add(block)
+        self.checkBlock(level)
 
 class Level_3(Level):
     # Tutorial's creation
@@ -194,19 +179,7 @@ class Level_3(Level):
                   [Classes.platforms.SKY28, 0, 48],
                   ]
 
-        for platform in level:
-            if platform[0] == Classes.platforms.SPRING:
-                block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
-                block = Classes.platforms.GravityPortal(platform[0])
-            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
-                block = Classes.platforms.Pike(platform[0])
-            else :
-                block = Classes.platforms.Platform(platform[0])
-            block.rect.x = platform[1]
-            block.rect.y = platform[2]
-            block.player = self.player
-            self.platform_list.add(block)
+        self.checkBlock(level)
 
 class Level_4(Level):
     # Tutorial's creation
@@ -245,19 +218,7 @@ class Level_4(Level):
                   [Classes.platforms.SKY28, 0, 48],
                   ]
 
-        for platform in level:
-            if platform[0] == Classes.platforms.SPRING:
-                block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
-                block = Classes.platforms.GravityPortal(platform[0])
-            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
-                block = Classes.platforms.Pike(platform[0])
-            else :
-                block = Classes.platforms.Platform(platform[0])
-            block.rect.x = platform[1]
-            block.rect.y = platform[2]
-            block.player = self.player
-            self.platform_list.add(block)
+        self.checkBlock(level)
 
 class Level_5(Level):
     # Tutorial's creation
@@ -288,19 +249,7 @@ class Level_5(Level):
                   [Classes.platforms.SKY28, 0, 48],
                   ]
 
-        for platform in level:
-            if platform[0] == Classes.platforms.SPRING:
-                block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
-                block = Classes.platforms.GravityPortal(platform[0])
-            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
-                block = Classes.platforms.Pike(platform[0])
-            else :
-                block = Classes.platforms.Platform(platform[0])
-            block.rect.x = platform[1]
-            block.rect.y = platform[2]
-            block.player = self.player
-            self.platform_list.add(block)
+        self.checkBlock(level)
 
 class Level_6(Level):
     # Tutorial's creation
@@ -331,16 +280,4 @@ class Level_6(Level):
                   [Classes.platforms.PORTAL_B, 700, 48],
                   ]
 
-        for platform in level:
-            if platform[0] == Classes.platforms.SPRING:
-                block = Classes.platforms.Spring(platform[0])
-            elif platform[0] == Classes.platforms.PORTAL_Y or platform[0] == Classes.platforms.PORTAL_B:
-                block = Classes.platforms.GravityPortal(platform[0])
-            elif platform[0] == Classes.platforms.SPIKE_UP or platform[0] == Classes.platforms.SPIKE_DOWN:
-                block = Classes.platforms.Pike(platform[0])
-            else :
-                block = Classes.platforms.Platform(platform[0])
-            block.rect.x = platform[1]
-            block.rect.y = platform[2]
-            block.player = self.player
-            self.platform_list.add(block)
+        self.checkBlock(level)

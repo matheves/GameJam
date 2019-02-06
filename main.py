@@ -81,6 +81,10 @@ def main():
                 player.pos = Classes.constants.levelStart_x
                 generateLevel(player, current_level)
 
+            if event.type == Classes.constants.BOOST:
+                player.go_boost()
+
+
         # Update the player.
         active_sprite_list.update()
 

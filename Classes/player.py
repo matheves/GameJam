@@ -21,6 +21,10 @@ class Player(pygame.sprite.Sprite):
 
     level = None
 
+    boost_x = 0
+
+    distance = 0
+
     gravity = True # True = gravity / False = antigravity
 
     """CONSTRUCTOR"""
@@ -79,6 +83,7 @@ class Player(pygame.sprite.Sprite):
         self.calc_grav()
 
         #Move Left/Right
+        self.distance += self.change_x
         self.rect.x += self.change_x
         pos = self.rect.x + self.level.world_shift
         if self.direction == "R" and self.gravity == True:
@@ -127,16 +132,28 @@ class Player(pygame.sprite.Sprite):
                 gravityEvent = pygame.event.Event(Classes.constants.ANTIGRAVITY)
                 pygame.event.post(gravityEvent)
 
-            if type(block) == Pike or self.rect.y < Classes.constants.topBorder or self.rect.y > Classes.constants.bottomBorder:
+            if type(block) == Pike or type(block) == Mine:
                 self.change_x = 0
                 self.change_y = 0
                 self.gravity = True
                 deathEvent = pygame.event.Event(Classes.constants.DEATH)
                 pygame.event.post(deathEvent)
+            if type(block) == Boost:
+                pygame.time.set_timer(Classes.constants.BOOST, 20)
+                self.boost_x = self.distance + 280
+            if type(block) == Finish:
+                finishEvent = pygame.event.Event(Classes.Constants.FINISH)
+                pygame.event.post(finishEvent)
+
 
 
             # Stop our vertical movement
             self.change_y = 0
+
+        if(self.boost_x != 0 and self.distance > self.boost_x):
+            pygame.time.set_timer(Classes.constants.BOOST, 0)
+            self.boost_x = 0
+            self.stop()
 
 
     def calc_grav(self):
@@ -230,3 +247,7 @@ class Player(pygame.sprite.Sprite):
             self.rect.y = 468
 
         self.gravity = not self.gravity
+
+    def go_boost(self):
+        self.change_x = 12
+        self.direction = "R"

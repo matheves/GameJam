@@ -38,5 +38,7 @@ SPRING = pygame.USEREVENT + 1
 DEATH = pygame.USEREVENT + 2
 ANTIGRAVITY = pygame.USEREVENT + 3
 ENDLEVEL = pygame.USEREVENT + 4
+BOOST = pygame.USEREVENT + 5
+FINISH = pygame.USEREVENT + 6
 
 #Level
