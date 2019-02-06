@@ -21,6 +21,7 @@ PORTAL_Y_DOWN         = (648, 432, 70, 70)
 PORTAL_Y_UP           = (648, 390, 70, 40)
 PORTAL_B_DOWN         = (647, 288, 70, 70)
 PORTAL_B_UP           = (648, 174, 70, 40)
+BOOST                 = (432,0,70,70)
 
 class Platform(pygame.sprite.Sprite):
     # Platform to jump

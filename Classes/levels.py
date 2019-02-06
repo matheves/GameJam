@@ -51,6 +51,7 @@ class Level_0(Level):
                   [Classes.platforms.GRASS_MIDDLE, 1190, 650],
                   [Classes.platforms.SPIKE_LEFT, 1190, 580],
                   [Classes.platforms.SPRING, 1353, 625],
+                  [Classes.platforms.BOOST, 1500, 580],
                   [Classes.platforms.PORTAL_Y_DOWN, 1680, 580],
                   [Classes.platforms.PORTAL_Y_UP, 1680, 540],
                   [Classes.platforms.WALL, 1840, 450],
