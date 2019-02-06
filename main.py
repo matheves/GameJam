@@ -2,6 +2,7 @@ import pygame
 import Classes.levels
 import Classes.constants
 from Classes.player import Player
+from Classes.levels import Level_0
 import random
 from time import time
 
@@ -155,13 +156,18 @@ def main():
                     player.go_boost()
 
                 if event.type == Classes.constants.FINISH:
-                    son = pygame.mixer.Sound("victory.wav")
-                    son.play()
-                    list_no.remove(noLevel)
-                    noLevel = createRandomNum(list_no)
-                    current_level = selectRandomLevel(player, list_no, noLevel)
-                    player.pos = Classes.constants.levelStart_x
-                    generateLevel(player, current_level)
+                    if (type(player.level) != Level_0):
+                        son = pygame.mixer.Sound("victory.wav")
+                        son.play()
+                        list_no.remove(noLevel)
+                        noLevel = createRandomNum(list_no)
+                        current_level = selectRandomLevel(player, list_no, noLevel)
+                        player.pos = Classes.constants.levelStart_x
+                        generateLevel(player, current_level)
+                    else :
+                        continuer_accueil = 1
+                        continuer_jeu = 0
+
 
 
             # Update the player.
