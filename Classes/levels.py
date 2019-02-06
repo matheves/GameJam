@@ -75,3 +75,44 @@ class Level_0(Level):
             block.rect.y = platform[2]
             block.player = self.player
             self.platform_list.add(block)
+
+class Level_1(Level):
+    # Tutorial's creation
+    def __init__(self, player):
+        Level.__init__(self, player)
+        self.background = pygame.image.load("Images/background_00.png").convert()
+        self.level_limit = -2500
+
+        level = [ [Classes.platforms.WALL, 50, 450],
+                  [Classes.platforms.WALL, 50, 300],
+                  [Classes.platforms.SPIKE_UP, 600, 330],
+                  [Classes.platforms.SPIKE_UP, 1150, 580],
+                  [Classes.platforms.SPIKE_UP, 1420, 580],
+                  [Classes.platforms.SPIKE_DOWN, 1290, 420],
+                  [Classes.platforms.SPRING, 390, 625],
+                  [Classes.platforms.GRASS_LEFT,0,650],
+                  [Classes.platforms.GRASS_MIDDLE,70,650],
+                  [Classes.platforms.GRASS_MIDDLE,140,650],
+                  [Classes.platforms.GRASS_MIDDLE,210,650],
+                  [Classes.platforms.GRASS_MIDDLE,280,650],
+                  [Classes.platforms.GRASS_MIDDLE,350,650],
+                  [Classes.platforms.GRASS_MIDDLE,600,400],
+                  [Classes.platforms.GRASS_MIDDLE,670,400],
+                  [Classes.platforms.GRASS_MIDDLE,740,400],
+                  [Classes.platforms.FLOOR28, 1000, 650],
+
+                  [Classes.platforms.WALL, 50, 118],
+                  [Classes.platforms.SKY28, 0, 48],
+                  ]
+
+        for platform in level:
+            if platform[0] == Classes.platforms.SPRING:
+                block = Classes.platforms.Spring(platform[0])
+            elif platform[0] == Classes.platforms.PORTAL_Y_DOWN or platform[0] == Classes.platforms.PORTAL_Y_UP or platform[0] == Classes.platforms.PORTAL_B_DOWN or platform[0] == Classes.platforms.PORTAL_B_UP:
+                block = Classes.platforms.GravityPortal(platform[0])
+            else :
+                block = Classes.platforms.Platform(platform[0])
+            block.rect.x = platform[1]
+            block.rect.y = platform[2]
+            block.player = self.player
+            self.platform_list.add(block)
