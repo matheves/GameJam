@@ -58,7 +58,7 @@ class Level_0(Level):
 
                   [Classes.platforms.WALL, 50, 118],
                   [Classes.platforms.PORTAL_B_DOWN, 140, 118],
-                  [Classes.platforms.PORTAL_B_UP, 139, 187],
+                  [Classes.platforms.PORTAL_B_UP, 140, 187],
                   [Classes.platforms.WALL, 1840, 118],
                   [Classes.platforms.SKY28, 0, 48],
                   ]
