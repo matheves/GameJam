@@ -17,7 +17,7 @@ def main():
 
     #create levels
     level_list = []
-    level_list.append(Classes.levels.Level_0(player))
+    level_list.append(Classes.levels.Level_1(player))
 
     #Set the current level
     current_level_no = 0
@@ -29,7 +29,7 @@ def main():
     player.rect.x = 340
     player.rect.y = Classes.constants.SCREEN_HEIGHT - player.rect.height - 118
     active_sprite_list.add(player)
-
+#test
     done = False
 
     clock = pygame.time.Clock()

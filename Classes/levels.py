@@ -34,7 +34,7 @@ class Level():
         # Sprite movement
         for platform in self.platform_list:
             platform.rect.x += shift_x
-
+#test
 class Level_0(Level):
     # Tutorial's creation
     def __init__(self, player):
