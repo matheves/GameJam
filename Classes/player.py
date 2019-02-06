@@ -130,6 +130,7 @@ class Player(pygame.sprite.Sprite):
             if type(block) == Pike or self.rect.y < Classes.constants.topBorder or self.rect.y > Classes.constants.bottomBorder:
                 self.change_x = 0
                 self.change_y = 0
+                self.gravity = True
                 deathEvent = pygame.event.Event(Classes.constants.DEATH)
                 pygame.event.post(deathEvent)
 

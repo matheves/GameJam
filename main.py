@@ -9,6 +9,7 @@ def selectRandomLevel(level_list):
     return level_list[k]
 
 def generateLevel(player, level):
+    player.level = level
     player.rect.x = Classes.constants.levelStart_x
     player.rect.y = Classes.constants.levelStart_y
     level.reset()
@@ -29,11 +30,13 @@ def main():
     level_list = []
     level_list.append(Classes.levels.Level_0(player))
     level_list.append(Classes.levels.Level_1(player))
+    """
     level_list.append(Classes.levels.Level_2(player))
     level_list.append(Classes.levels.Level_3(player))
     level_list.append(Classes.levels.Level_4(player))
     level_list.append(Classes.levels.Level_5(player))
     level_list.append(Classes.levels.Level_6(player))
+    """
 
     #Set the current level
     current_level = selectRandomLevel(level_list)
@@ -74,7 +77,7 @@ def main():
 
             if event.type == Classes.constants.DEATH:
                 current_level = selectRandomLevel(level_list)
-                perso.pos = Classes.constants.levelStart_x
+                player.pos = Classes.constants.levelStart_x
                 generateLevel(player, current_level)
 
         # Update the player.
