@@ -108,6 +108,8 @@ def main():
                     counter -= 1
                     text = str(counter).rjust(3) if counter > 0 else 'boom!'
                     if counter <= 0:
+                        son = pygame.mixer.Sound("temps.wav")
+                        son.play()
                         continuer_jeu = 0
                         choix = 0
 
@@ -132,12 +134,18 @@ def main():
                         player.stop()
 
                 if event.type == Classes.constants.SPRING:
+                    son = pygame.mixer.Sound("ressort.wav")
+                    son.play()
                     player.springJump()
 
                 if event.type == Classes.constants.ANTIGRAVITY:
                     player.changeGravity()
+                    son = pygame.mixer.Sound("grav.wav")
+                    son.play()
 
                 if event.type == Classes.constants.DEATH:
+                    son = pygame.mixer.Sound("boom.wav")
+                    son.play()
                     noLevel = createRandomNum(list_no)
                     current_level = selectRandomLevel(player, list_no, noLevel)
                     player.pos = Classes.constants.levelStart_x
@@ -147,6 +155,8 @@ def main():
                     player.go_boost()
 
                 if event.type == Classes.constants.FINISH:
+                    son = pygame.mixer.Sound("victory.wav")
+                    son.play()
                     list_no.remove(noLevel)
                     noLevel = createRandomNum(list_no)
                     current_level = selectRandomLevel(player, list_no, noLevel)
