@@ -113,6 +113,10 @@ class Player(pygame.sprite.Sprite):
         # Move up/down
         self.rect.y += self.change_y
 
+        #Check if we are out of the map
+        if self.rect.y < 50 or self.rect.y > 700:
+            self.death()
+
         # Check and see if we hit anything
         block_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         for block in block_hit_list:
@@ -133,12 +137,7 @@ class Player(pygame.sprite.Sprite):
                 pygame.event.post(gravityEvent)
 
             if type(block) == Pike or type(block) == Mine:
-                self.change_x = 0
-                self.change_y = 0
-                self.boost_x = self.distance - 1
-                self.gravity = True
-                deathEvent = pygame.event.Event(Classes.constants.DEATH)
-                pygame.event.post(deathEvent)
+                self.death()
 
             if type(block) == Boost:
                 pygame.time.set_timer(Classes.constants.BOOST, 20)
@@ -149,9 +148,6 @@ class Player(pygame.sprite.Sprite):
                 finishEvent = pygame.event.Event(Classes.constants.FINISH)
                 pygame.event.post(finishEvent)
 
-
-
-
             # Stop our vertical movement
             self.change_y = 0
 
@@ -159,7 +155,6 @@ class Player(pygame.sprite.Sprite):
             pygame.time.set_timer(Classes.constants.BOOST, 0)
             self.boost_x = 0
             self.stop()
-
 
     def calc_grav(self):
         """ Calculate effect of gravity """
@@ -256,3 +251,11 @@ class Player(pygame.sprite.Sprite):
     def go_boost(self):
         self.change_x = 12
         self.direction = "R"
+
+    def death(self):
+        self.change_x = 0
+        self.change_y = 0
+        self.boost_x = self.distance - 1
+        self.gravity = True
+        deathEvent = pygame.event.Event(Classes.constants.DEATH)
+        pygame.event.post(deathEvent)
