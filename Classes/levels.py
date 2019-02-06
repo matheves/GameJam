@@ -228,8 +228,10 @@ class Level_4(Level):
         self.background = pygame.image.load("Images/background_00.png").convert()
         self.level_limit = -2500
 
-        level = [ [Classes.platforms.WALL, 50, 450],
-                  [Classes.platforms.WALL, 50, 300],
+        level = [ [Classes.platforms.WALL, 70, 118],
+                  [Classes.platforms.WALL, 70, 260],
+                  [Classes.platforms.WALL, 70, 368],
+                  [Classes.platforms.WALL, 70, 510],
                   [Classes.platforms.SPRING, 1225, 625],
                   [Classes.platforms.SPIKE_UP, 750, 580],
                   [Classes.platforms.SPIKE_UP, 960, 580],
@@ -249,12 +251,14 @@ class Level_4(Level):
                   [Classes.platforms.BLOCK,1200,650],
                   [Classes.platforms.FINISH, 1770, 650],
 
-                  [Classes.platforms.WALL, 50, 118],
                   [Classes.platforms.WALL, 750, 118],
-                  [Classes.platforms.WALL, 960, 160],
+                  [Classes.platforms.WALL, 960, 210],
                   [Classes.platforms.WALL, 960, 118],
-                  [Classes.platforms.WALL, 750, 160],
+                  [Classes.platforms.WALL, 750, 210],
                   [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 952, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
                   ]
 
         self.checkBlock(level)
@@ -266,8 +270,10 @@ class Level_5(Level):
         self.background = pygame.image.load("Images/background_00.png").convert()
         self.level_limit = -2500
 
-        level = [ [Classes.platforms.WALL, 50, 450],
-                  [Classes.platforms.WALL, 50, 300],
+        level = [ [Classes.platforms.WALL, 70, 118],
+                  [Classes.platforms.WALL, 70, 260],
+                  [Classes.platforms.WALL, 70, 368],
+                  [Classes.platforms.WALL, 70, 510],
                   [Classes.platforms.MINE, 1335, 638],
                   [Classes.platforms.BLOCK,70,650],
                   [Classes.platforms.BLOCK,140,650],
@@ -283,8 +289,10 @@ class Level_5(Level):
                   [Classes.platforms.BLOCK,1100,650],
                   [Classes.platforms.FINISH, 1770, 650],
 
-                  [Classes.platforms.WALL, 50, 118],
                   [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 952, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
                   ]
 
         self.checkBlock(level)
@@ -296,26 +304,37 @@ class Level_6(Level):
         self.background = pygame.image.load("Images/background_00.png").convert()
         self.level_limit = -2500
 
-        level = [ [Classes.platforms.WALL, 50, 450],
-                  [Classes.platforms.WALL, 50, 300],
-                  [Classes.platforms.SPIKE_UP, 570, 580],
+        level = [ [Classes.platforms.SPIKE_UP, 570, 580],
                   [Classes.platforms.SPIKE_UP, 1100, 640],
                   [Classes.platforms.SPIKE_UP, 1150, 640],
                   [Classes.platforms.SPIKE_UP, 1400, 640],
                   [Classes.platforms.SPIKE_DOWN, 500, 60],
 
-                  [Classes.platforms.FLOOR7, 0, 650],
-                  [Classes.platforms.FINISH, 1770, 650],
 
-                  [Classes.platforms.WALL, 50, 118],
                   [Classes.platforms.WALL, 950, 450],
-                  [Classes.platforms.WALL, 1850, 118],
+                  [Classes.platforms.WALL, 950, 510],
+                  [Classes.platforms.FLOOR7, 0, 650],
+                  [Classes.platforms.FLOOR7, 476, 650],
+                  [Classes.platforms.FLOOR7, 952, 650],
+                  [Classes.platforms.FLOOR7, 1428, 650],
                   [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 952, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
+                  [Classes.platforms.WALL, 55, 118],
+                  [Classes.platforms.WALL, 55, 260],
+                  [Classes.platforms.WALL, 55, 368],
+                  [Classes.platforms.WALL, 55, 510],
+                  [Classes.platforms.WALL, 1835, 118],
+                  [Classes.platforms.WALL, 1835, 260],
+                  [Classes.platforms.WALL, 1835, 368],
+                  [Classes.platforms.WALL, 1835, 510],
                   [Classes.platforms.PORTAL_Y, 500, 650],
                   [Classes.platforms.PORTAL_Y, 850, 650],
                   [Classes.platforms.PORTAL_B, 1100, 48],
                   [Classes.platforms.PORTAL_B, 1400, 48],
                   [Classes.platforms.PORTAL_B, 700, 48],
+                  [Classes.platforms.FINISH, 1770, 650],
                   ]
 
         self.checkBlock(level)
