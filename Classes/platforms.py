@@ -2,22 +2,17 @@ import pygame
 from Classes.spritesheet_functions import SpriteSheet
 
 #   Name of file = (X,Y,WIDTH,HEIGHT)
-GRASS_LEFT            = (576, 720, 70, 70)
-GRASS_MIDDLE          = (504, 576, 70, 70)
-GRASS_RIGHT           = (576, 576, 70, 70)
-FLOOR28               = (  0, 990,1930,70)
-SKY28                 = (  0,1075,1930,70)
-WALL                  = (1029,412, 70,200)
-SPIKE_UP              = (940, 480, 70, 70)
-SPIKE_DOWN            = (940, 554, 70, 70)
-SPIKE_RIGHT           = (720, 144, 70, 70)
-SPIKE_LEFT            = (940, 626, 70, 70)
-MINE                  = (432, 127, 70, 15)
-SPRING                = (967, 347, 19, 27)
-PORTAL_Y              = (648, 432, 70, 70)
-PORTAL_B              = (647, 288, 70, 70)
-BOOST                 = (432,   0, 70, 70)
-FINISH                = (432, 432, 70, 70)
+BOOST                 = (  3,  3, 70, 70)
+BLOCK                 = ( 75,  3, 70, 70)
+SPIKE_UP              = (148,  4, 70, 70)
+SPIKE_DOWN            = (222,  3, 70, 70)
+FINISH                = (294,  4, 70, 70)
+PORTAL_Y              = (367,  3, 70, 70)
+PORTAL_B              = (440,  4, 70, 70)
+SPRING                = (539, 19, 19, 27)
+MINE                  = (510, 56, 70, 15)
+WALL                  = (584,  5, 70,142)
+FLOOR7                = (  3, 78,476, 70)
 
 class Platform(pygame.sprite.Sprite):
     # Platform to jump
