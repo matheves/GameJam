@@ -45,19 +45,18 @@ class Level_0(Level):
         level = [ [Classes.platforms.WALL, 50, 450],
                   [Classes.platforms.MINE, 560, 638],
                   [Classes.platforms.SPIKE_UP, 840, 580],
-                  [Classes.platforms.SPIKE_DOWN, 840, 300],
-                  [Classes.platforms.SPRING, 1353, 625],
-
+                  [Classes.platforms.SPIKE_DOWN, 840, 260],
+                  [Classes.platforms.SPRING, 1209, 625],
                   [Classes.platforms.WALL, 1840, 450],
                   [Classes.platforms.FLOOR28, 0, 650],
                   [Classes.platforms.PORTAL_Y, 1680, 650],
+                  [Classes.platforms.BOOST, 1430, 650],
                   [Classes.platforms.FINISH, 260, 650],
 
                   [Classes.platforms.WALL, 50, 118],
                   [Classes.platforms.WALL, 1840, 118],
                   [Classes.platforms.SKY28, 0, 48],
-                  [Classes.platforms.PORTAL_B, 140, 48],
-                  [Classes.platforms.BOOST, 1500, 650],
+                  [Classes.platforms.PORTAL_B, 125, 48],
                   ]
 
         for platform in level:
