@@ -35,8 +35,8 @@ class Level():
         for platform in self.platform_list:
             platform.rect.x += shift_x
 
-    def reset(self):
-        self.world_shift = 0
+    def reset(self,player):
+        pygame.display.flip()
 #test
 class Level_0(Level):
     # Tutorial's creation

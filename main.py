@@ -4,15 +4,18 @@ import Classes.constants
 from Classes.player import Player
 import random
 
-def selectRandomLevel(level_list):
+def selectRandomLevel(player):
+    level_list = []
     k = random.randint(0, Classes.constants.nbLevel-1)
-    return level_list[k]
+    level = "level_list.append(Classes.levels.Level_" + str(k) + "(player))"
+    exec(level)
+    return level_list[0]
 
 def generateLevel(player, level):
     player.level = level
     player.rect.x = Classes.constants.levelStart_x
     player.rect.y = Classes.constants.levelStart_y
-    level.reset()
+    level.__init__(player)
 
 def main():
     pygame.init()
@@ -27,19 +30,17 @@ def main():
     player = Player()
 
     #create levels
-    level_list = []
-    level_list.append(Classes.levels.Level_0(player))
-    level_list.append(Classes.levels.Level_1(player))
-    """
-    level_list.append(Classes.levels.Level_2(player))
-    level_list.append(Classes.levels.Level_3(player))
-    level_list.append(Classes.levels.Level_4(player))
-    level_list.append(Classes.levels.Level_5(player))
-    level_list.append(Classes.levels.Level_6(player))
-    """
+    #level_list = []
+    #level_list.append(Classes.levels.Level_0(player))
+    #level_list.append(Classes.levels.Level_1(player))
+    #level_list.append(Classes.levels.Level_2(player))
+    #level_list.append(Classes.levels.Level_3(player))
+    #level_list.append(Classes.levels.Level_4(player))
+    #level_list.append(Classes.levels.Level_5(player))
+    #level_list.append(Classes.levels.Level_6(player))
 
     #Set the current level
-    current_level = selectRandomLevel(level_list)
+    current_level = selectRandomLevel(player)
 
     active_sprite_list = pygame.sprite.Group()
     generateLevel(player, current_level)
@@ -76,7 +77,7 @@ def main():
                 player.changeGravity()
 
             if event.type == Classes.constants.DEATH:
-                current_level = selectRandomLevel(level_list)
+                current_level = selectRandomLevel(player)
                 player.pos = Classes.constants.levelStart_x
                 generateLevel(player, current_level)
 
