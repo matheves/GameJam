@@ -16,6 +16,8 @@ class Level():
         self.platform_list = pygame.sprite.Group()
         self.player = player
 
+        self.player.gravity = True
+
     def update(self):
         # Update everything in the level
         self.platform_list.update()

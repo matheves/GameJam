@@ -87,7 +87,7 @@ class Player(pygame.sprite.Sprite):
         self.calc_grav()
 
         #Move Left/Right
-        self.distance += self.change_x
+        self.distance += abs(self.change_x)
         self.rect.x += self.change_x
         pos = self.rect.x + self.level.world_shift
         if self.direction == "R" and self.gravity == True:
@@ -169,9 +169,7 @@ class Player(pygame.sprite.Sprite):
             self.change_y = 0
 
         if(self.boost_x != 0 and self.distance > self.boost_x):
-            pygame.time.set_timer(Classes.constants.BOOST, 0)
-            self.boost_x = 0
-            self.stop()
+            self.resetBoost()
 
     def calc_grav(self):
         """ Calculate effect of gravity """
@@ -238,6 +236,11 @@ class Player(pygame.sprite.Sprite):
         """ Called when the users don't move """
         self.change_x = 0
 
+    def resetBoost(self):
+        pygame.time.set_timer(Classes.constants.BOOST, 0)
+        self.boost_x = 0
+        self.stop()
+
     def springJump(self):
         if self.gravity == True:
             self.rect.y += 2
@@ -275,7 +278,6 @@ class Player(pygame.sprite.Sprite):
         self.score += self.distance * self.multiplicateur
         self.multiplicateur = 1
         self.distance = 0
-        self.boost_x = -1
-        self.gravity = True
+        self.resetBoost()
         deathEvent = pygame.event.Event(Classes.constants.DEATH)
         pygame.event.post(deathEvent)

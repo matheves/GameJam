@@ -19,7 +19,6 @@ def selectRandomLevel(player, list_no, noLevel):
     return level_list[0]
 
 def generateLevel(player, level):
-    player.gravity = True
     player.level = level
     player.rect.x = Classes.constants.levelStart_x
     player.rect.y = Classes.constants.levelStart_y
@@ -203,23 +202,26 @@ def main():
 
         while continuer_jeu:
 
+            print(player.gravity)
+
             score = "Score : " + format(player.score)
             multiplicateur = "Multiplicateur : x" + format(player.multiplicateur)
 
             for event in pygame.event.get():
 
                 if event.type == pygame.USEREVENT:
-                    counter -= 1
-                    text = "Timer : " + str(counter).rjust(3)
-                    if counter == 15:
-                        son = pygame.mixer.Sound("Musiques/minuteur.wav")
-                        son.play()
-                    elif counter <= 0:
-                        son = pygame.mixer.Sound("Musiques/temps.wav")
-                        son.play()
-                        continuer_jeu = 0
-                        choix = 0
-                        continuer_score = 1
+                    if type(current_level) != Level_0:
+                        counter -= 1
+                        text = "Timer : " + str(counter).rjust(3)
+                        if counter == 15:
+                            son = pygame.mixer.Sound("Musiques/minuteur.wav")
+                            son.play()
+                        elif counter <= 0:
+                            son = pygame.mixer.Sound("Musiques/temps.wav")
+                            son.play()
+                            continuer_jeu = 0
+                            choix = 0
+                            continuer_score = 1
 
                 elif event.type == pygame.QUIT: # If user clicked close
                     done = True # Flag that we are done so we exit this loop
@@ -293,9 +295,10 @@ def main():
             active_sprite_list.draw(screen)
             clock.tick(60)
 
-            screen.blit(font.render(text, True, (255, 255, 255)), (10, 0))
-            screen.blit(font.render(score, True, (255, 255, 255)), (380, 0))
-            screen.blit(font.render(multiplicateur, True, (255, 255, 255)), (720, 0))
+            if type(current_level) != Level_0:
+                screen.blit(font.render(text, True, (255, 255, 255)), (10, 0))
+                screen.blit(font.render(score, True, (255, 255, 255)), (380, 0))
+                screen.blit(font.render(multiplicateur, True, (255, 255, 255)), (720, 0))
 
             pygame.display.flip()
 
