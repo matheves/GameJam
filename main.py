@@ -42,11 +42,11 @@ def generateClasssement():
     return classement
 
 def printScore(screen, player):
-    font = pygame.font.SysFont("comicsansms", 32)
+    font = pygame.font.SysFont("PHOSPHATE", 50)
     background = pygame.image.load("Images/score.jpg").convert()
-    score = font.render(str(player.score), True, (255,255,255))
+    score = font.render(str(player.score), True, (221,246,65))
     screen.blit(background, (0,0))
-    screen.blit(score, (360, 440))
+    screen.blit(score, (450, 430))
 
 def ajouterScore(player, text):
     if str(text) == "":
@@ -84,7 +84,7 @@ def main():
 
     isMusic = True
 
-    inputBox = InputBox(360, 600, 325, 40)
+    inputBox = InputBox(485, 530, 310, 60)
 
     clock = pygame.time.Clock()
     pygame.time.set_timer(pygame.USEREVENT, 1000)
