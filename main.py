@@ -81,6 +81,8 @@ def main():
         screen.blit(accueil, (0,0))
         soundoff = pygame.image.load("Images/soundoff.png").convert_alpha()
         screen.blit(soundoff, (30,30))
+        soundoff = pygame.image.load("Images/soundon.png").convert_alpha()
+        screen.blit(soundoff, (120,30))
 
         pygame.display.flip()
 
@@ -124,6 +126,9 @@ def main():
 
                 elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and event.pos[1] < 94 and event.pos[1] > 30 and event.pos[0] < 94 and event.pos[0] > 30:
                     pygame.mixer.music.pause()
+
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and event.pos[1] < 94 and event.pos[1] > 30 and event.pos[0] < 184 and event.pos[0] > 120:
+                    pygame.mixer.music.unpause()
 
 
         if choix != 0:
