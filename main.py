@@ -95,7 +95,7 @@ def main():
     #Game Loop
     while not done:
 
-        counter, text = 10, '10'.rjust(3)
+        counter, text = 180, '180'.rjust(3)
 
         accueil = pygame.image.load("Images/accueil.jpg").convert()
         screen.blit(accueil, (0,0))
