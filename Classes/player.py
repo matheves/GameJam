@@ -148,7 +148,7 @@ class Player(pygame.sprite.Sprite):
                 self.boost_x = self.distance + 280
 
             if type(block) == Finish:
-                self.score += self.distance * multiplicateur
+                self.score += self.distance * self.multiplicateur
                 self.multiplicateur += 1
                 self.distance = 0
                 self.boost_x = -1
