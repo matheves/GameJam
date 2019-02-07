@@ -17,6 +17,7 @@ def selectRandomLevel(player, list_no, noLevel):
     return level_list[0]
 
 def generateLevel(player, level):
+    player.gravity = True
     player.level = level
     player.rect.x = Classes.constants.levelStart_x
     player.rect.y = Classes.constants.levelStart_y
