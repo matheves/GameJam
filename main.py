@@ -37,7 +37,7 @@ def generateClasssement():
 
     for line in lines:
         phrase = line.split(" ")
-        classement.append([phrase[0],int(phrase[1][0:-1])])
+        classement.append([phrase[0],int(phrase[1])])
 
     return classement
 
@@ -54,7 +54,7 @@ def ajouterScore(player, text):
     else:
         player.pseudo = str(text)
     file = open("classement.txt", "a")
-    file.write("{} {}".format(player.pseudo, player.score))
+    file.write("{} {} {}".format(player.pseudo, player.score, " "))
     file.close()
 
 def printClassement(screen, classement):
@@ -95,7 +95,7 @@ def main():
     #Game Loop
     while not done:
 
-        counter, text = 180, '180'.rjust(3)
+        counter, text = 10, '10'.rjust(3)
 
         accueil = pygame.image.load("Images/accueil.jpg").convert()
         screen.blit(accueil, (0,0))
@@ -200,8 +200,6 @@ def main():
             pygame.display.flip()
 
         while continuer_jeu:
-
-            print(player.gravity)
 
             score = "Score : " + format(player.score)
             multiplicateur = "Multiplicateur : x" + format(player.multiplicateur)
@@ -313,7 +311,7 @@ def main():
                         continuer_score = 0
                         ajouterScore(player, inputBox.text)
 
-            inputBox.handle_event(event)
+                inputBox.handle_event(event)
             printScore(screen, player)
             inputBox.update()
             inputBox.draw(screen)
