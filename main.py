@@ -25,7 +25,7 @@ def generateLevel(player, level):
     level.__init__(player)
 
 def launchMusic():
-    pygame.mixer.music.load("Level_music.wav")
+    pygame.mixer.music.load("Musiques/Level_music.wav")
     pygame.mixer.music.set_volume(0.1)
     pygame.mixer.music.play(-1)
 
@@ -46,11 +46,11 @@ def printClassement(screen, classement):
     screen.blit(background, (0,0))
     classement.sort(key = itemgetter(1), reverse = True)
     for i in range(0,5):
-        font = pygame.font.SysFont("comicsansms", 32)
-        pseudo = font.render(classement[i][0], True, (255, 255, 255))
-        score = font.render(str(classement[i][1]), True, (255, 255, 255))
-        screen.blit(pseudo, (380, 300 + (90 * i)))
-        screen.blit(score, (640, 300 + (90 *i)))
+        font = pygame.font.SysFont("PHOSPHATE", 40)
+        pseudo = font.render(classement[i][0], True, (255, 255, 0))
+        score = font.render(str(classement[i][1]), True, (255, 255, 0))
+        screen.blit(pseudo, (370, 290 + (93 * i)))
+        screen.blit(score, (690, 290 + (93 *i)))
 
 def main():
     pygame.init()
@@ -68,7 +68,7 @@ def main():
 
     clock = pygame.time.Clock()
     pygame.time.set_timer(pygame.USEREVENT, 1000)
-    font = pygame.font.SysFont('Consolas', 60)
+    font = pygame.font.SysFont('Impact', 40)
 
     launchMusic()
 
@@ -79,12 +79,15 @@ def main():
 
         accueil = pygame.image.load("Images/accueil.jpg").convert()
         screen.blit(accueil, (0,0))
+        soundoff = pygame.image.load("Images/soundoff.png").convert_alpha()
+        screen.blit(soundoff, (30,30))
 
         pygame.display.flip()
 
         continuer_accueil = 1
         continuer_jeu = 0
         continuer_classement = 0
+        continuer_credits = 0
 
         while continuer_accueil:
             player.score = 0
@@ -114,6 +117,15 @@ def main():
                         continuer_classement = 1
                         choix = "classement"
 
+                    elif event.key == pygame.K_F4:
+                        continuer_accueil = 0
+                        continuer_credits = 1
+                        choix = "credits"
+
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and event.pos[1] < 94 and event.pos[1] > 30 and event.pos[0] < 94 and event.pos[0] > 30:
+                    pygame.mixer.music.pause()
+
+
         if choix != 0:
             if choix == "tuto":
                 current_level = Classes.levels.Level_0(player)
@@ -132,8 +144,12 @@ def main():
                 generateLevel(player, current_level)
                 active_sprite_list.add(player)
 
-            else:
+            elif choix == "classement":
                 classement = generateClasssement()
+
+            elif choix == "credits":
+                credits = pygame.image.load("Images/Credits.jpg").convert()
+                screen.blit(credits, (0,0))
 
         while continuer_classement:
             for event in pygame.event.get():
@@ -148,19 +164,32 @@ def main():
             printClassement(screen, classement)
             pygame.display.flip()
 
+        while continuer_credits:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                          continuer_credits = 0
+                          continuer_accueil = 1
+                if event.type == pygame.QUIT:
+                    done = True
+                    continuer_credits = 0
+            pygame.display.flip()
 
         while continuer_jeu:
 
-            print("score = {}".format(player.score))
-            print("multiplicateur = {}".format(player.multiplicateur))
+            score = "Score : " + format(player.score)
+            multiplicateur = "Multiplicateur : x" + format(player.multiplicateur)
 
             for event in pygame.event.get():
 
                 if event.type == pygame.USEREVENT:
                     counter -= 1
-                    text = str(counter).rjust(3) if counter > 0 else 'boom!'
-                    if counter <= 0:
-                        son = pygame.mixer.Sound("temps.wav")
+                    text = "Timer : " + str(counter).rjust(3)
+                    if counter == 15:
+                        son = pygame.mixer.Sound("Musiques/minuteur.wav")
+                        son.play()
+                    elif counter <= 0:
+                        son = pygame.mixer.Sound("Musiques/temps.wav")
                         son.play()
                         continuer_jeu = 0
                         choix = 0
@@ -186,17 +215,17 @@ def main():
                         player.stop()
 
                 if event.type == Classes.constants.SPRING:
-                    son = pygame.mixer.Sound("ressort.wav")
+                    son = pygame.mixer.Sound("Musiques/ressort.wav")
                     son.play()
                     player.springJump()
 
                 if event.type == Classes.constants.ANTIGRAVITY:
                     player.changeGravity()
-                    son = pygame.mixer.Sound("grav.wav")
+                    son = pygame.mixer.Sound("Musiques/grav.wav")
                     son.play()
 
                 if event.type == Classes.constants.DEATH:
-                    son = pygame.mixer.Sound("boom.wav")
+                    son = pygame.mixer.Sound("Musiques/boom.wav")
                     son.play()
                     if (type(player.level) != Level_0):
                         noLevel = createRandomNum(list_no)
@@ -212,7 +241,7 @@ def main():
 
                 if event.type == Classes.constants.FINISH:
                     if (type(player.level) != Level_0):
-                        son = pygame.mixer.Sound("victory.wav")
+                        son = pygame.mixer.Sound("Musiques/victory.wav")
                         son.play()
                         list_no.remove(noLevel)
                         noLevel = createRandomNum(list_no)
@@ -247,7 +276,9 @@ def main():
             active_sprite_list.draw(screen)
             clock.tick(60)
 
-            screen.blit(font.render(text, True, (255, 45, 0)), (32, 48))
+            screen.blit(font.render(text, True, (255, 255, 255)), (10, 0))
+            screen.blit(font.render(score, True, (255, 255, 255)), (380, 0))
+            screen.blit(font.render(multiplicateur, True, (255, 255, 255)), (720, 0))
 
             pygame.display.flip()
     pygame.quit()
