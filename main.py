@@ -155,10 +155,14 @@ def main():
                 if event.type == Classes.constants.DEATH:
                     son = pygame.mixer.Sound("boom.wav")
                     son.play()
-                    noLevel = createRandomNum(list_no)
-                    current_level = selectRandomLevel(player, list_no, noLevel)
-                    player.pos = Classes.constants.levelStart_x
-                    generateLevel(player, current_level)
+                    if (type(player.level) != Level_0):
+                        noLevel = createRandomNum(list_no)
+                        current_level = selectRandomLevel(player, list_no, noLevel)
+                        player.pos = Classes.constants.levelStart_x
+                        generateLevel(player, current_level)
+                    else:
+                        generateLevel(player, current_level)
+
 
                 if event.type == Classes.constants.BOOST:
                     player.go_boost()
