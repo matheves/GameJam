@@ -30,7 +30,7 @@ levelStart_y = SCREEN_HEIGHT - playerHeight - 118
 
 bottomBorder = 704
 topBorder = 118
-nbLevel = 10
+nbLevel = 20
 
 # Events
 
