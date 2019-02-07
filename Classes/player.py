@@ -119,6 +119,8 @@ class Player(pygame.sprite.Sprite):
 
         #Check if we are out of the map
         if self.rect.y < 50 or self.rect.y > 700:
+            son = pygame.mixer.Sound("Musiques/boom.wav")
+            son.play()
             self.death()
 
         # Check and see if we hit anything
@@ -133,14 +135,20 @@ class Player(pygame.sprite.Sprite):
 
 
             if type(block) == Spring:
+                son = pygame.mixer.Sound("Musiques/ressort.wav")
+                son.play()
                 springEvent = pygame.event.Event(Classes.constants.SPRING)
                 pygame.event.post(springEvent)
 
             if type(block) == GravityPortal:
+                son = pygame.mixer.Sound("Musiques/grav.wav")
+                son.play()
                 gravityEvent = pygame.event.Event(Classes.constants.ANTIGRAVITY)
                 pygame.event.post(gravityEvent)
 
             if type(block) == Pike or type(block) == Mine:
+                son = pygame.mixer.Sound("Musiques/boom.wav")
+                son.play()
                 self.death()
 
             if type(block) == Boost:
@@ -148,6 +156,8 @@ class Player(pygame.sprite.Sprite):
                 self.boost_x = self.distance + 280
 
             if type(block) == Finish:
+                son = pygame.mixer.Sound("Musiques/victory.wav")
+                son.play()
                 self.score += self.distance * self.multiplicateur
                 self.multiplicateur += 1
                 self.distance = 0
