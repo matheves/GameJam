@@ -87,7 +87,7 @@ class Player(pygame.sprite.Sprite):
         self.calc_grav()
 
         #Move Left/Right
-        self.distance += self.change_x
+        self.distance += abs(self.change_x)
         self.rect.x += self.change_x
         pos = self.rect.x + self.level.world_shift
         if self.direction == "R" and self.gravity == True:
@@ -119,6 +119,8 @@ class Player(pygame.sprite.Sprite):
 
         #Check if we are out of the map
         if self.rect.y < 50 or self.rect.y > 700:
+            son = pygame.mixer.Sound("Musiques/boom.wav")
+            son.play()
             self.death()
 
         # Check and see if we hit anything
@@ -133,14 +135,20 @@ class Player(pygame.sprite.Sprite):
 
 
             if type(block) == Spring:
+                son = pygame.mixer.Sound("Musiques/ressort.wav")
+                son.play()
                 springEvent = pygame.event.Event(Classes.constants.SPRING)
                 pygame.event.post(springEvent)
 
             if type(block) == GravityPortal:
+                son = pygame.mixer.Sound("Musiques/grav.wav")
+                son.play()
                 gravityEvent = pygame.event.Event(Classes.constants.ANTIGRAVITY)
                 pygame.event.post(gravityEvent)
 
             if type(block) == Pike or type(block) == Mine:
+                son = pygame.mixer.Sound("Musiques/boom.wav")
+                son.play()
                 self.death()
 
             if type(block) == Boost:
@@ -148,6 +156,8 @@ class Player(pygame.sprite.Sprite):
                 self.boost_x = self.distance + 280
 
             if type(block) == Finish:
+                son = pygame.mixer.Sound("Musiques/victory.wav")
+                son.play()
                 self.score += self.distance * self.multiplicateur
                 self.multiplicateur += 1
                 self.distance = 0
@@ -159,9 +169,7 @@ class Player(pygame.sprite.Sprite):
             self.change_y = 0
 
         if(self.boost_x != 0 and self.distance > self.boost_x):
-            pygame.time.set_timer(Classes.constants.BOOST, 0)
-            self.boost_x = 0
-            self.stop()
+            self.resetBoost()
 
     def calc_grav(self):
         """ Calculate effect of gravity """
@@ -228,6 +236,11 @@ class Player(pygame.sprite.Sprite):
         """ Called when the users don't move """
         self.change_x = 0
 
+    def resetBoost(self):
+        pygame.time.set_timer(Classes.constants.BOOST, 0)
+        self.boost_x = 0
+        self.stop()
+
     def springJump(self):
         if self.gravity == True:
             self.rect.y += 2
@@ -265,7 +278,6 @@ class Player(pygame.sprite.Sprite):
         self.score += self.distance * self.multiplicateur
         self.multiplicateur = 1
         self.distance = 0
-        self.boost_x = -1
-        self.gravity = True
+        self.resetBoost()
         deathEvent = pygame.event.Event(Classes.constants.DEATH)
         pygame.event.post(deathEvent)

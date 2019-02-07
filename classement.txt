@@ -1,5 +1,5 @@
-Pascal_OP 125630
-P1gle 110833
-B1ttle 96496
-M1chle 115652
-Rodrigue 32615
+Pascal_OP 60000
+P1gle 49630
+B1ttle 48652
+M1chle 47236
+Rodrigue 7
