@@ -2,6 +2,7 @@ import pygame
 import Classes.levels
 import Classes.constants
 from Classes.player import Player
+from Classes.levels import Level_0
 import random
 from time import time
 
@@ -16,10 +17,16 @@ def selectRandomLevel(player, list_no, noLevel):
     return level_list[0]
 
 def generateLevel(player, level):
+    player.gravity = True
     player.level = level
     player.rect.x = Classes.constants.levelStart_x
     player.rect.y = Classes.constants.levelStart_y
     level.__init__(player)
+
+def launchMusic():
+    pygame.mixer.music.load("Level_music.wav")
+    pygame.mixer.music.set_volume(0.1)
+    pygame.mixer.music.play(-1)
 
 def main():
     pygame.init()
@@ -48,6 +55,8 @@ def main():
     clock = pygame.time.Clock()
     pygame.time.set_timer(pygame.USEREVENT, 1000)
     font = pygame.font.SysFont('Consolas', 60)
+
+    launchMusic()
 
     #Game Loop
     while not done:
@@ -146,22 +155,31 @@ def main():
                 if event.type == Classes.constants.DEATH:
                     son = pygame.mixer.Sound("boom.wav")
                     son.play()
-                    noLevel = createRandomNum(list_no)
-                    current_level = selectRandomLevel(player, list_no, noLevel)
-                    player.pos = Classes.constants.levelStart_x
-                    generateLevel(player, current_level)
+                    if (type(player.level) != Level_0):
+                        noLevel = createRandomNum(list_no)
+                        current_level = selectRandomLevel(player, list_no, noLevel)
+                        player.pos = Classes.constants.levelStart_x
+                        generateLevel(player, current_level)
+                    else:
+                        generateLevel(player, current_level)
+
 
                 if event.type == Classes.constants.BOOST:
                     player.go_boost()
 
                 if event.type == Classes.constants.FINISH:
-                    son = pygame.mixer.Sound("victory.wav")
-                    son.play()
-                    list_no.remove(noLevel)
-                    noLevel = createRandomNum(list_no)
-                    current_level = selectRandomLevel(player, list_no, noLevel)
-                    player.pos = Classes.constants.levelStart_x
-                    generateLevel(player, current_level)
+                    if (type(player.level) != Level_0):
+                        son = pygame.mixer.Sound("victory.wav")
+                        son.play()
+                        list_no.remove(noLevel)
+                        noLevel = createRandomNum(list_no)
+                        current_level = selectRandomLevel(player, list_no, noLevel)
+                        player.pos = Classes.constants.levelStart_x
+                        generateLevel(player, current_level)
+                    else :
+                        continuer_accueil = 1
+                        continuer_jeu = 0
+
 
 
             # Update the player.
