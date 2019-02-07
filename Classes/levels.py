@@ -79,7 +79,7 @@ class Level_0(Level):
 
                   [Classes.platforms.MINE, 560, 638],
                   [Classes.platforms.SPIKE_UP, 840, 580],
-                  [Classes.platforms.SPIKE_DOWN, 840, 260],
+                  [Classes.platforms.SPIKE_UP, 840, 260],
                   [Classes.platforms.PORTAL_B, 125, 48],
                   [Classes.platforms.PORTAL_Y, 1680, 650],
                   [Classes.platforms.SPRING, 1209, 625],
