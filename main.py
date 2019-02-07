@@ -4,6 +4,7 @@ import Classes.constants
 from Classes.player import Player
 from Classes.levels import Level_0
 import random
+from operator import itemgetter
 from time import time
 
 
@@ -27,6 +28,29 @@ def launchMusic():
     pygame.mixer.music.load("Level_music.wav")
     pygame.mixer.music.set_volume(0.1)
     pygame.mixer.music.play(-1)
+
+def generateClasssement():
+    classement = []
+    file = open("classement.txt", "r")
+    lines = file.readlines()
+    file.close()
+
+    for line in lines:
+        phrase = line.split(" ")
+        classement.append([phrase[0],int(phrase[1][0:-1])])
+
+    return classement
+
+def printClassement(screen, classement):
+    background = pygame.image.load("Images/classement.jpg").convert()
+    screen.blit(background, (0,0))
+    classement.sort(key = itemgetter(1), reverse = True)
+    for i in range(0,5):
+        font = pygame.font.SysFont("comicsansms", 32)
+        pseudo = font.render(classement[i][0], True, (255, 255, 255))
+        score = font.render(str(classement[i][1]), True, (255, 255, 255))
+        screen.blit(pseudo, (380, 300 + (90 * i)))
+        screen.blit(score, (640, 300 + (90 *i)))
 
 def main():
     pygame.init()
@@ -59,9 +83,12 @@ def main():
         pygame.display.flip()
 
         continuer_accueil = 1
-        continuer_jeu = 1
+        continuer_jeu = 0
+        continuer_classement = 0
 
         while continuer_accueil:
+            player.score = 0
+            player.multiplicateur = 1
 
             for event in pygame.event.get():
 
@@ -74,11 +101,18 @@ def main():
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_F1:
                         continuer_accueil = 0
+                        continuer_jeu = 1
                         choix = "tuto"
 
                     elif event.key == pygame.K_F2:
                         continuer_accueil = 0
+                        continuer_jeu = 1
                         choix = "ramdom"
+
+                    elif event.key == pygame.K_F3:
+                        continuer_accueil = 0
+                        continuer_classement = 1
+                        choix = "classement"
 
         if choix != 0:
             if choix == "tuto":
@@ -97,6 +131,23 @@ def main():
                 active_sprite_list = pygame.sprite.Group()
                 generateLevel(player, current_level)
                 active_sprite_list.add(player)
+
+            else:
+                classement = generateClasssement()
+
+        while continuer_classement:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                          continuer_classement = 0
+                          continuer_accueil = 1
+                if event.type == pygame.QUIT:
+                    done = True
+                    continuer_classement = 0
+
+            printClassement(screen, classement)
+            pygame.display.flip()
+
 
         while continuer_jeu:
 
