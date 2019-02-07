@@ -948,7 +948,7 @@ class Level_19(Level):
                   [Classes.platforms.SPRING, 496, 625],
                   [Classes.platforms.FLOOR7, 620, 350],
                   [Classes.platforms.SPIKE_UP, 620, 350],
-                  [Classes.platforms.MINE, 780, 337],
+                  [Classes.platforms.MINE, 800, 337],
                   [Classes.platforms.MINE, 850, 337],
                   [Classes.platforms.MINE, 920, 337],
                   [Classes.platforms.SPRING, 1500, 625],
