@@ -1002,3 +1002,49 @@ class Level_20(Level):
                   ]
 
         self.checkBlock(level)
+
+class Level_21(Level):
+    # Tutorial's creation
+    def __init__(self, player):
+        Level.__init__(self, player)
+        self.background = pygame.image.load("Images/background_00.png").convert()
+        self.level_limit = -2500
+
+        level = [ #sol
+                  [Classes.platforms.FLOOR7, 0, 650],
+                  #[Classes.platforms.FLOOR7, 1428, 650],
+                  #toit
+                  [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 952, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
+
+                  [Classes.platforms.WALL, 55, 118],
+                  [Classes.platforms.WALL, 55, 260],
+                  [Classes.platforms.WALL, 55, 368],
+                  [Classes.platforms.WALL, 55, 510],
+                  [Classes.platforms.WALL, 1835, 118],
+                  [Classes.platforms.WALL, 1835, 260],
+                  [Classes.platforms.WALL, 1835, 368],
+                  [Classes.platforms.WALL, 1835, 510],
+
+                  [Classes.platforms.FINISH, 125, 650],
+                  [Classes.platforms.WALL, 195, 368],
+                  [Classes.platforms.WALL, 195, 510],
+                  [Classes.platforms.SPRING, 800, 650],
+                  [Classes.platforms.SPRING, 800, 300],
+                  [Classes.platforms.SPRING, 1100, 650],
+                  [Classes.platforms.SPRING, 1500, 660],
+                  [Classes.platforms.SPRING, 1600, 300],
+                  [Classes.platforms.SPRING, 1800, 660],
+                  [Classes.platforms.SPRING, 1800, 370],
+                  [Classes.platforms.SPRING, 1400, 300],
+                  [Classes.platforms.SPRING, 1200, 300],
+                  [Classes.platforms.SPRING, 1100, 300],
+                  [Classes.platforms.SPRING, 900, 300],
+                  [Classes.platforms.SPRING, 600, 300],
+                  [Classes.platforms.SPRING, 400, 300],
+                  [Classes.platforms.BOOST, 195, 368],
+                  ]
+
+        self.checkBlock(level)
