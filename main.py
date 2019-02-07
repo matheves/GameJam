@@ -22,6 +22,11 @@ def generateLevel(player, level):
     player.rect.y = Classes.constants.levelStart_y
     level.__init__(player)
 
+def launchMusic():
+    pygame.mixer.music.load("Level_music.wav")
+    pygame.mixer.music.set_volume(0.1)
+    pygame.mixer.music.play(-1)
+
 def main():
     pygame.init()
 
@@ -49,6 +54,8 @@ def main():
     clock = pygame.time.Clock()
     pygame.time.set_timer(pygame.USEREVENT, 1000)
     font = pygame.font.SysFont('Consolas', 60)
+
+    launchMusic()
 
     #Game Loop
     while not done:
