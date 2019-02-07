@@ -802,3 +802,203 @@ class Level_16(Level):
                   ]
 
         self.checkBlock(level)
+
+class Level_17(Level):
+    # Tutorial's creation
+    def __init__(self, player):
+        Level.__init__(self, player)
+        self.background = pygame.image.load("Images/background_00.png").convert()
+        self.level_limit = -2500
+
+        level = [ #sol
+                  [Classes.platforms.FLOOR7, 0, 650],
+
+
+                  #toit
+                  [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 952, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
+
+                  [Classes.platforms.WALL, 55, 118],
+                  [Classes.platforms.WALL, 55, 260],
+                  [Classes.platforms.WALL, 55, 368],
+                  [Classes.platforms.WALL, 55, 510],
+                  [Classes.platforms.WALL, 1835, 118],
+                  [Classes.platforms.WALL, 1835, 260],
+                  [Classes.platforms.WALL, 1835, 368],
+                  [Classes.platforms.WALL, 1835, 510],
+                  [Classes.platforms.BOOST, 406, 650],
+                  [Classes.platforms.BOOST, 800, 650],
+                  [Classes.platforms.BOOST, 1200, 650],
+                  [Classes.platforms.BOOST, 1270, 650],
+                  [Classes.platforms.BOOST, 1340, 650],
+                  [Classes.platforms.FLOOR7, 476, 350],
+                  [Classes.platforms.FLOOR7, 952, 350],
+                  [Classes.platforms.FLOOR7, 1428, 350],
+
+
+                  [Classes.platforms.BOOST, 1340, 350],
+                  [Classes.platforms.SPIKE_UP, 1410, 350],
+                  [Classes.platforms.SPIKE_UP, 1480, 350],
+                  [Classes.platforms.SPIKE_UP, 1540, 350],
+                  [Classes.platforms.SPIKE_UP, 1000, 350],
+                  [Classes.platforms.SPIKE_UP, 930, 350],
+                  [Classes.platforms.SPRING, 1100, 325],
+                  [Classes.platforms.SPRING, 1650, 325],
+                  [Classes.platforms.SPRING, 900, 325],
+                  [Classes.platforms.SPRING, 120, 625],
+                  [Classes.platforms.SPIKE_DOWN, 1000, 48],
+                  [Classes.platforms.SPIKE_DOWN, 930, 48],
+                  [Classes.platforms.SPIKE_DOWN, 1070, 48],
+                  [Classes.platforms.SPIKE_DOWN, 1140, 48],
+                  [Classes.platforms.SPIKE_DOWN, 1210, 48],
+                  [Classes.platforms.SPIKE_DOWN, 1280, 48],
+                  [Classes.platforms.SPIKE_UP, 640, 350],
+                  [Classes.platforms.SPIKE_UP, 580, 350],
+                  [Classes.platforms.SPIKE_UP, 510, 350],
+                  [Classes.platforms.BLOCK, 720, 350],
+                  [Classes.platforms.BLOCK, 750, 350],
+                  [Classes.platforms.BLOCK, 195, 350],
+                  [Classes.platforms.BLOCK, 265, 350],
+                  [Classes.platforms.BLOCK, 335, 350],
+                  [Classes.platforms.SPIKE_DOWN, 1770, 48],
+                  [Classes.platforms.SPIKE_DOWN, 1700, 48],
+
+                  [Classes.platforms.FINISH, 1770, 350],
+                  ]
+
+        self.checkBlock(level)
+
+class Level_18(Level):
+    # Tutorial's creation
+    def __init__(self, player):
+        Level.__init__(self, player)
+        self.background = pygame.image.load("Images/background_00.png").convert()
+        self.level_limit = -2500
+
+        level = [ #sol
+                  [Classes.platforms.FLOOR7, 0, 650],
+                  [Classes.platforms.FLOOR7, 952, 650],
+                  #toit
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
+
+                  [Classes.platforms.WALL, 55, 118],
+                  [Classes.platforms.WALL, 55, 260],
+                  [Classes.platforms.WALL, 55, 368],
+                  [Classes.platforms.WALL, 55, 510],
+                  [Classes.platforms.WALL, 1835, 118],
+                  [Classes.platforms.WALL, 1835, 260],
+                  [Classes.platforms.WALL, 1835, 368],
+                  [Classes.platforms.WALL, 1835, 510],
+                  [Classes.platforms.PORTAL_Y, 476, 650],
+                  [Classes.platforms.PORTAL_Y, 1428, 650],
+                  [Classes.platforms.PORTAL_B, 952, 48],
+                  [Classes.platforms.SPRING, 485, 98],
+                  [Classes.platforms.SPIKE_DOWN, 546, 118],
+                  [Classes.platforms.SPIKE_DOWN, 616, 118],
+                  [Classes.platforms.SPIKE_DOWN, 686, 118],
+                  [Classes.platforms.SPIKE_DOWN, 746, 118],
+                  [Classes.platforms.SPIKE_DOWN, 816, 118],
+                  [Classes.platforms.SPIKE_DOWN, 846, 118],
+                  [Classes.platforms.SPRING, 1438, 98],
+                  [Classes.platforms.SPIKE_DOWN, 1492, 118],
+                  [Classes.platforms.SPIKE_DOWN, 1562, 118],
+                  [Classes.platforms.SPIKE_DOWN, 1632, 118],
+                  [Classes.platforms.SPIKE_DOWN, 1682, 118],
+                  [Classes.platforms.SPRING, 980, 625],
+                  [Classes.platforms.SPIKE_UP, 1022, 580],
+                  [Classes.platforms.SPIKE_UP, 1092, 580],
+                  [Classes.platforms.SPIKE_UP, 1162, 580],
+                  [Classes.platforms.SPIKE_UP, 1232, 580],
+                  [Classes.platforms.SPIKE_UP, 1302, 580],
+                  [Classes.platforms.SPIKE_UP, 1342, 580],
+
+                  [Classes.platforms.FINISH, 1770, 48],
+
+                  ]
+
+        self.checkBlock(level)
+
+class Level_19(Level):
+    # Tutorial's creation
+    def __init__(self, player):
+        Level.__init__(self, player)
+        self.background = pygame.image.load("Images/background_00.png").convert()
+        self.level_limit = -2500
+
+        level = [ #sol
+                  [Classes.platforms.FLOOR7, 0, 650],
+                  #toit
+                  [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+                  [Classes.platforms.FLOOR7, 952, 48],
+                  [Classes.platforms.FLOOR7, 1428, 48],
+
+                  [Classes.platforms.WALL, 55, 118],
+                  [Classes.platforms.WALL, 55, 260],
+                  [Classes.platforms.WALL, 55, 368],
+                  [Classes.platforms.WALL, 55, 510],
+                  [Classes.platforms.WALL, 1835, 118],
+                  [Classes.platforms.WALL, 1835, 260],
+                  [Classes.platforms.WALL, 1835, 368],
+                  [Classes.platforms.WALL, 1835, 510],
+                  [Classes.platforms.BLOCK, 476, 650],
+                  [Classes.platforms.SPRING, 496, 625],
+                  [Classes.platforms.FLOOR7, 620, 350],
+                  [Classes.platforms.SPIKE_UP, 620, 350],
+                  [Classes.platforms.MINE, 780, 337],
+                  [Classes.platforms.MINE, 850, 337],
+                  [Classes.platforms.MINE, 920, 337],
+                  [Classes.platforms.SPRING, 1500, 625],
+
+                  [Classes.platforms.FINISH, 1770, 650],
+                  ]
+
+        self.checkBlock(level)
+
+class Level_20(Level):
+    # Tutorial's creation
+    def __init__(self, player):
+        Level.__init__(self, player)
+        self.background = pygame.image.load("Images/background_00.png").convert()
+        self.level_limit = -2500
+
+        level = [ #sol
+                  [Classes.platforms.FLOOR7, 0, 650],
+                  [Classes.platforms.FLOOR7, 476, 650],
+                  [Classes.platforms.FLOOR7, 952, 650],
+                  [Classes.platforms.FLOOR7, 1428, 650],
+                  #toit
+                  [Classes.platforms.FLOOR7, 0, 48],
+                  [Classes.platforms.FLOOR7, 476, 48],
+
+
+                  [Classes.platforms.WALL, 55, 118],
+                  [Classes.platforms.WALL, 55, 260],
+                  [Classes.platforms.WALL, 55, 368],
+                  [Classes.platforms.WALL, 55, 510],
+                  [Classes.platforms.WALL, 1835, 118],
+                  [Classes.platforms.WALL, 1835, 260],
+                  [Classes.platforms.WALL, 1835, 368],
+                  [Classes.platforms.WALL, 1835, 510],
+                  [Classes.platforms.PORTAL_Y, 1120, 650],
+                  [Classes.platforms.MINE, 600, 637],
+                  [Classes.platforms.MINE, 670, 637],
+                  [Classes.platforms.SPRING, 800, 625],
+                  [Classes.platforms.SPIKE_UP, 900, 650],
+                  [Classes.platforms.SPIKE_UP, 970, 650],
+                  [Classes.platforms.SPIKE_UP, 1020, 650],
+                  [Classes.platforms.SPIKE_UP, 1220, 650],
+                  [Classes.platforms.SPIKE_UP, 1290, 650],
+                  [Classes.platforms.SPIKE_UP, 1320, 650],
+                  [Classes.platforms.PORTAL_B, 1700, 48],
+                  [Classes.platforms.BLOCK, 1125, 48],
+                  [Classes.platforms.BLOCK, 1195, 48],
+                  [Classes.platforms.SPRING, 1225, 118],
+
+                  [Classes.platforms.FINISH, 1770, 650],
+                  ]
+
+        self.checkBlock(level)
