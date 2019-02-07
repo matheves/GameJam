@@ -40,16 +40,6 @@ def main():
     #init player
     player = Player()
 
-    #create levels
-    #level_list = []
-    #level_list.append(Classes.levels.Level_0(player))
-    #level_list.append(Classes.levels.Level_1(player))
-    #level_list.append(Classes.levels.Level_2(player))
-    #level_list.append(Classes.levels.Level_3(player))
-    #level_list.append(Classes.levels.Level_4(player))
-    #level_list.append(Classes.levels.Level_5(player))
-    #level_list.append(Classes.levels.Level_6(player))
-
     done = False
 
     clock = pygame.time.Clock()
@@ -110,6 +100,8 @@ def main():
 
         while continuer_jeu:
 
+            print("score = {}".format(player.score))
+            print("multiplicateur = {}".format(player.multiplicateur))
 
             for event in pygame.event.get():
 

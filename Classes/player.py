@@ -27,6 +27,10 @@ class Player(pygame.sprite.Sprite):
 
     gravity = True # True = gravity / False = antigravity
 
+    score = 0
+
+    multiplicateur = 1
+
     """CONSTRUCTOR"""
 
     def __init__(self):
@@ -144,7 +148,10 @@ class Player(pygame.sprite.Sprite):
                 self.boost_x = self.distance + 280
 
             if type(block) == Finish:
-                self.boost_x = self.distance - 1
+                self.score += self.distance * multiplicateur
+                self.multiplicateur += 1
+                self.distance = 0
+                self.boost_x = -1
                 finishEvent = pygame.event.Event(Classes.constants.FINISH)
                 pygame.event.post(finishEvent)
 
@@ -255,7 +262,10 @@ class Player(pygame.sprite.Sprite):
     def death(self):
         self.change_x = 0
         self.change_y = 0
-        self.boost_x = self.distance - 1
+        self.score += self.distance * self.multiplicateur
+        self.multiplicateur = 1
+        self.distance = 0
+        self.boost_x = -1
         self.gravity = True
         deathEvent = pygame.event.Event(Classes.constants.DEATH)
         pygame.event.post(deathEvent)
