@@ -15,7 +15,7 @@ class Level():
         # Manage collision and removable platform
         self.platform_list = pygame.sprite.Group()
         self.player = player
-
+        # Reset gravity
         self.player.gravity = True
 
     def update(self):
@@ -38,9 +38,11 @@ class Level():
             platform.rect.x += shift_x
 
     def reset(self,player):
+        # Reverse the sprite
         pygame.display.flip()
 
     def checkBlock(self, level):
+        # Act accordingly
         for platform in level:
             if platform[0] == Classes.platforms.SPRING:
                 block = Classes.platforms.Spring(platform[0])
@@ -56,29 +58,33 @@ class Level():
                 block = Classes.platforms.Finish(platform[0])
             else :
                 block = Classes.platforms.Platform(platform[0])
+            # Set property
             block.rect.x = platform[1]
             block.rect.y = platform[2]
             block.player = self.player
             self.platform_list.add(block)
-#test
+
+
 class Level_0(Level):
     # Tutorial's creation
     def __init__(self, player):
-        Level.__init__(self, player)
-        self.background = pygame.image.load("Images/background_00.png").convert()
-        self.level_limit = -2500
+        # Initialization
+        Level.__init__(self, player) # Create Level element
+        self.background = pygame.image.load("Images/background_00.png").convert() # Set background
+        self.level_limit = -2500 # Set limite
 
-        level = [ #sol
+        # Placement of elements with pixels
+        level = [ #floor
                   [Classes.platforms.FLOOR7, 0, 650],
                   [Classes.platforms.FLOOR7, 476, 650],
                   [Classes.platforms.FLOOR7, 952, 650],
                   [Classes.platforms.FLOOR7, 1428, 650],
-                  #toit
+                  #roof
                   [Classes.platforms.FLOOR7, 0, 48],
                   [Classes.platforms.FLOOR7, 476, 48],
                   [Classes.platforms.FLOOR7, 952, 48],
                   [Classes.platforms.FLOOR7, 1428, 48],
-
+                  #others elements
                   [Classes.platforms.MINE, 560, 638],
                   [Classes.platforms.SPIKE_UP, 840, 580],
                   [Classes.platforms.SPIKE_UP, 840, 260],
@@ -97,10 +103,10 @@ class Level_0(Level):
                   [Classes.platforms.WALL, 1835, 510],
                   ]
 
+        # Check blocks put and act accordingly
         self.checkBlock(level)
 
 class Level_1(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -140,7 +146,6 @@ class Level_1(Level):
         self.checkBlock(level)
 
 class Level_2(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -181,7 +186,6 @@ class Level_2(Level):
         self.checkBlock(level)
 
 class Level_3(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -224,7 +228,6 @@ class Level_3(Level):
         self.checkBlock(level)
 
 class Level_4(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -266,7 +269,6 @@ class Level_4(Level):
         self.checkBlock(level)
 
 class Level_5(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -300,7 +302,6 @@ class Level_5(Level):
         self.checkBlock(level)
 
 class Level_6(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -311,7 +312,6 @@ class Level_6(Level):
                   [Classes.platforms.SPIKE_UP, 1150, 640],
                   [Classes.platforms.SPIKE_UP, 1400, 640],
                   [Classes.platforms.SPIKE_DOWN, 500, 60],
-
 
                   [Classes.platforms.WALL, 950, 450],
                   [Classes.platforms.WALL, 950, 510],
@@ -342,7 +342,6 @@ class Level_6(Level):
         self.checkBlock(level)
 
 class Level_7(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -380,7 +379,6 @@ class Level_7(Level):
         self.checkBlock(level)
 
 class Level_8(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -420,7 +418,6 @@ class Level_8(Level):
         self.checkBlock(level)
 
 class Level_9(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -460,14 +457,12 @@ class Level_9(Level):
                   [Classes.platforms.SPIKE_DOWN, 1550, 48],
                   [Classes.platforms.SPRING, 1100, 118],
 
-
                   [Classes.platforms.FINISH, 1770, 650],
                   ]
 
         self.checkBlock(level)
 
 class Level_10(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -476,7 +471,6 @@ class Level_10(Level):
         level = [ #sol
                   [Classes.platforms.FLOOR7, 0, 650],
                   [Classes.platforms.FLOOR7, 476, 650],
-
                   [Classes.platforms.FLOOR7, 1428, 650],
 
                   #toit
@@ -512,7 +506,6 @@ class Level_10(Level):
         self.checkBlock(level)
 
 class Level_11(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -559,7 +552,6 @@ class Level_11(Level):
         self.checkBlock(level)
 
 class Level_12(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -612,7 +604,6 @@ class Level_12(Level):
         self.checkBlock(level)
 
 class Level_13(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -620,7 +611,6 @@ class Level_13(Level):
 
         level = [ #sol
                   [Classes.platforms.FLOOR7, 0, 650],
-
 
                   #toit
                   [Classes.platforms.FLOOR7, 0, 48],
@@ -672,7 +662,6 @@ class Level_13(Level):
         self.checkBlock(level)
 
 class Level_14(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -703,7 +692,6 @@ class Level_14(Level):
         self.checkBlock(level)
 
 class Level_15(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -712,13 +700,11 @@ class Level_15(Level):
         level = [ #sol
                   [Classes.platforms.FLOOR7, 0, 650],
 
-
                   #toit
                   [Classes.platforms.FLOOR7, 0, 48],
                   [Classes.platforms.FLOOR7, 476, 48],
                   [Classes.platforms.FLOOR7, 952, 48],
                   [Classes.platforms.FLOOR7, 1428, 48],
-
                   [Classes.platforms.WALL, 55, 118],
                   [Classes.platforms.WALL, 55, 260],
                   [Classes.platforms.WALL, 55, 368],
@@ -735,7 +721,6 @@ class Level_15(Level):
                   [Classes.platforms.SPRING, 1770, 650],
                   [Classes.platforms.FLOOR7, 1200, 350],
                   [Classes.platforms.FLOOR7, 800, 350],
-
 
                   [Classes.platforms.BOOST, 1350, 350],
                   [Classes.platforms.SPIKE_UP, 1410, 350],
@@ -761,7 +746,6 @@ class Level_15(Level):
         self.checkBlock(level)
 
 class Level_16(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -806,7 +790,6 @@ class Level_16(Level):
         self.checkBlock(level)
 
 class Level_17(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -873,7 +856,6 @@ class Level_17(Level):
         self.checkBlock(level)
 
 class Level_18(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -924,7 +906,6 @@ class Level_18(Level):
         self.checkBlock(level)
 
 class Level_19(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -961,7 +942,6 @@ class Level_19(Level):
         self.checkBlock(level)
 
 class Level_20(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -975,7 +955,6 @@ class Level_20(Level):
                   #toit
                   [Classes.platforms.FLOOR7, 0, 48],
                   [Classes.platforms.FLOOR7, 476, 48],
-
 
                   [Classes.platforms.WALL, 55, 118],
                   [Classes.platforms.WALL, 55, 260],
@@ -1006,7 +985,6 @@ class Level_20(Level):
         self.checkBlock(level)
 
 class Level_21(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -1014,7 +992,6 @@ class Level_21(Level):
 
         level = [ #sol
                   [Classes.platforms.FLOOR7, 0, 650],
-                  #[Classes.platforms.FLOOR7, 1428, 650],
                   #toit
                   [Classes.platforms.FLOOR7, 0, 48],
                   [Classes.platforms.FLOOR7, 476, 48],
@@ -1052,7 +1029,6 @@ class Level_21(Level):
         self.checkBlock(level)
 
 class Level_22(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -1101,7 +1077,6 @@ class Level_22(Level):
         self.checkBlock(level)
 
 class Level_23(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -1165,7 +1140,6 @@ class Level_23(Level):
         self.checkBlock(level)
 
 class Level_24(Level):
-    # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
         self.background = pygame.image.load("Images/background_00.png").convert()
@@ -1218,7 +1192,6 @@ class Level_24(Level):
                   [Classes.platforms.SPIKE_DOWN, 1540, 58],
                   [Classes.platforms.PORTAL_B, 1600, 500],
                   [Classes.platforms.BOOST, 1100, 470],
-
                   [Classes.platforms.FINISH, 1770, 650],
 
                   ]
