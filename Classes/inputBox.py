@@ -1,6 +1,9 @@
 import pygame
 import Classes.constants
 
+'''Class for generate and use entry field with pygame'''
+'''find on stackoverflow https://stackoverflow.com/questions/46390231/how-to-create-a-text-input-box-with-pygame/46390412'''
+
 pygame.init()
 COLOR_INACTIVE = pygame.Color('white')
 COLOR_ACTIVE = pygame.Color('dodgerblue2')

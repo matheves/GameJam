@@ -1,5 +1,5 @@
 """
-Constants
+Constants for the game
 """
 
 import pygame
@@ -16,24 +16,20 @@ BLUE     = (   0,   0, 255)
 RED      = ( 255,   0,   0)
 GREEN    = (   0, 255,   0)
 
-#sprite size
-
+#player size
 playerHeight = 64
 playerWidth = 64
 
 #Player Cordinate at level start
-
 levelStart_x = 340
 levelStart_y = SCREEN_HEIGHT - playerHeight - 118
 
-#level
-
+#level informations
 bottomBorder = 704
 topBorder = 118
 nbLevel = 24
 
 # Events
-
 SPRING = pygame.USEREVENT + 1
 DEATH = pygame.USEREVENT + 2
 ANTIGRAVITY = pygame.USEREVENT + 3
@@ -41,5 +37,3 @@ ENDLEVEL = pygame.USEREVENT + 4
 BOOST = pygame.USEREVENT + 5
 FINISH = pygame.USEREVENT + 6
 ENTER_PSEUDO = pygame.USEREVENT + 7
-
-#Level

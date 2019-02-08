@@ -1,6 +1,8 @@
 import pygame
 from Classes.spritesheet_functions import SpriteSheet
 
+'''Class for platform and the differents type of platform'''
+
 #   Name of file = (X,Y,WIDTH,HEIGHT)
 BOOST                 = (  3,  3, 70, 70)
 BLOCK                 = ( 75,  3, 70, 70)
