@@ -17,6 +17,9 @@ class Level():
         self.player = player
 
         self.player.gravity = True
+        player.change_x = 0
+        player.resetBoost()
+
 
     def update(self):
         # Update everything in the level
@@ -65,7 +68,7 @@ class Level_0(Level):
     # Tutorial's creation
     def __init__(self, player):
         Level.__init__(self, player)
-        self.background = pygame.image.load("Images/background_00.png").convert()
+        self.background = pygame.image.load("Images/background_tuto.png").convert()
         self.level_limit = -2500
 
         level = [ #sol

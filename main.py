@@ -24,8 +24,8 @@ def generateLevel(player, level):
     player.rect.y = Classes.constants.levelStart_y
     level.__init__(player)
 
-def launchMusic():
-    pygame.mixer.music.load("Musiques/Level_music.wav")
+def launchMusic(path):
+    pygame.mixer.music.load(path)
     pygame.mixer.music.set_volume(0.1)
     pygame.mixer.music.play(-1)
 
@@ -54,7 +54,7 @@ def ajouterScore(player, text):
     else:
         player.pseudo = str(text)
     file = open("classement.txt", "a")
-    file.write("{} {} {}".format(player.pseudo, player.score, " "))
+    file.write("{} {} {}".format(player.pseudo, player.score, " \n"))
     file.close()
 
 def printClassement(screen, classement):
@@ -65,8 +65,8 @@ def printClassement(screen, classement):
         font = pygame.font.SysFont("PHOSPHATE", 40)
         pseudo = font.render(classement[i][0], True, (255, 255, 0))
         score = font.render(str(classement[i][1]), True, (255, 255, 0))
-        screen.blit(pseudo, (370, 290 + (93 * i)))
-        screen.blit(score, (690, 290 + (93 *i)))
+        screen.blit(pseudo, (370, 305 + (90 * i)))
+        screen.blit(score, (690, 305 + (90 *i)))
 
 def main():
     pygame.init()
@@ -84,13 +84,13 @@ def main():
 
     isMusic = True
 
-    inputBox = InputBox(485, 530, 310, 60)
+    inputBox = InputBox(500, 540, 310, 60)
 
     clock = pygame.time.Clock()
     pygame.time.set_timer(pygame.USEREVENT, 1000)
     font = pygame.font.SysFont('Impact', 40)
 
-    launchMusic()
+    launchMusic("Musiques/menu_music.wav")
 
     #Game Loop
     while not done:
@@ -99,8 +99,12 @@ def main():
 
         accueil = pygame.image.load("Images/accueil.jpg").convert()
         screen.blit(accueil, (0,0))
-        soundoff = pygame.image.load("Images/soundoff.png").convert_alpha()
-        screen.blit(soundoff, (30,30))
+        if isMusic:
+            sound = pygame.image.load("Images/soundon.png").convert_alpha()
+        else:
+            sound = pygame.image.load("Images/soundoff.png").convert_alpha()
+
+        screen.blit(sound, (30,30))
 
         pygame.display.flip()
 
@@ -127,11 +131,15 @@ def main():
                         continuer_accueil = 0
                         continuer_jeu = 1
                         choix = "tuto"
+                        if isMusic:
+                            launchMusic("Musiques/Level_music.wav")
 
                     elif event.key == pygame.K_F2:
                         continuer_accueil = 0
                         continuer_jeu = 1
                         choix = "ramdom"
+                        if isMusic:
+                            launchMusic("Musiques/Level_music.wav")
 
                     elif event.key == pygame.K_F3:
                         continuer_accueil = 0
@@ -146,10 +154,14 @@ def main():
                 elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and event.pos[1] < 94 and event.pos[1] > 30 and event.pos[0] < 94 and event.pos[0] > 30:
                     if isMusic:
                         pygame.mixer.music.pause()
+                        sound = pygame.image.load("Images/soundoff.png").convert_alpha()
                     else:
                         pygame.mixer.music.play(-1)
+                        sound = pygame.image.load("Images/soundon.png").convert_alpha()
                     isMusic = not isMusic
-
+                    screen.blit(accueil, (0,0))
+                    screen.blit(sound, (30,30))
+                    pygame.display.flip()
 
         if choix != 0:
             if choix == "tuto":
@@ -227,6 +239,8 @@ def main():
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                        continuer_jeu = 0
+                       if isMusic:
+                            launchMusic("Musiques/menu_music.wav")
                     elif event.key == pygame.K_LEFT:
                         player.go_left()
                     elif event.key == pygame.K_RIGHT:
@@ -269,6 +283,8 @@ def main():
                     else :
                         continuer_accueil = 1
                         continuer_jeu = 0
+                        if isMusic:
+                            launchMusic("Musiques/menu_music.wav")
 
             # Update the player.
             active_sprite_list.update()
@@ -310,6 +326,14 @@ def main():
                     if event.key == pygame.K_ESCAPE:
                         continuer_score = 0
                         ajouterScore(player, inputBox.text)
+                        if isMusic:
+                            launchMusic("Musiques/menu_music.wav")
+
+                elif event.type == Classes.constants.ENTER_PSEUDO:
+                    continuer_score = 0
+                    ajouterScore(player, inputBox.text)
+                    if isMusic:
+                        launchMusic("Musiques/menu_music.wav")
 
                 inputBox.handle_event(event)
             printScore(screen, player)

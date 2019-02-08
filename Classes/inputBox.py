@@ -1,9 +1,10 @@
 import pygame
+import Classes.constants
 
 pygame.init()
-COLOR_INACTIVE = pygame.Color('lightskyblue3')
+COLOR_INACTIVE = pygame.Color('white')
 COLOR_ACTIVE = pygame.Color('dodgerblue2')
-FONT = pygame.font.Font(None, 32)
+FONT = pygame.font.Font(None, 50)
 
 class InputBox:
 
@@ -11,7 +12,7 @@ class InputBox:
         self.rect = pygame.Rect(x, y, w, h)
         self.color = COLOR_INACTIVE
         self.text = text
-        self.txt_surface = FONT.render(text, True, self.color)
+        self.txt_surface = FONT.render(text, True, (221,246,65))
         self.active = False
 
     def handle_event(self, event):
@@ -27,14 +28,14 @@ class InputBox:
         if event.type == pygame.KEYDOWN:
             if self.active:
                 if event.key == pygame.K_RETURN:
-                    print(self.text)
-                    self.text = ''
+                    enterEvent = pygame.event.Event(Classes.constants.ENTER_PSEUDO)
+                    pygame.event.post(enterEvent)
                 elif event.key == pygame.K_BACKSPACE:
                     self.text = self.text[:-1]
                 else:
                     self.text += event.unicode
                 # Re-render the text.
-                self.txt_surface = FONT.render(self.text, True, self.color)
+                self.txt_surface = FONT.render(self.text, True, (221,246,65))
 
     def update(self):
         # Resize the box if the text is too long.
@@ -45,4 +46,4 @@ class InputBox:
         # Blit the text.
         screen.blit(self.txt_surface, (self.rect.x+5, self.rect.y+5))
         # Blit the rect.
-        pygame.draw.rect(screen, self.color, self.rect, 2)
+        #pygame.draw.rect(screen, self.color, self.rect, 2)
