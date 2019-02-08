@@ -384,7 +384,7 @@ def main():
             #update and draw the input box
             inputBox.update()
             inputBox.draw(screen)
-            #display scrren
+            #display screen
             pygame.display.flip()
     pygame.quit()
 
