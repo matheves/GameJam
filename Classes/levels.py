@@ -17,6 +17,9 @@ class Level():
         self.player = player
         # Reset gravity
         self.player.gravity = True
+        player.change_x = 0
+        player.resetBoost()
+
 
     def update(self):
         # Update everything in the level
@@ -70,7 +73,7 @@ class Level_0(Level):
     def __init__(self, player):
         # Initialization
         Level.__init__(self, player) # Create Level element
-        self.background = pygame.image.load("Images/background_00.png").convert() # Set background
+        self.background = pygame.image.load("Images/background_tuto.png").convert() # Set background
         self.level_limit = -2500 # Set limite
 
         # Placement of elements with pixels
